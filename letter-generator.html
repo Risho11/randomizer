@@ -78,6 +78,23 @@
             <option value="mixed">Mixed</option>
           </select>
         </div>
+        <div class="control-group" style="margin-top:4px;">
+          <label for="letter-preset">Quick preset</label>
+          <select id="letter-preset">
+            <option value="">— choose —</option>
+            <option value="vowels">Vowels only (AEIOU)</option>
+            <option value="consonants">Consonants only</option>
+            <option value="rare">Rare letters (Q X Z J K V W)</option>
+            <option value="hex">Hex digits (0–9 A–F)</option>
+          </select>
+        </div>
+        <div class="check-group" style="margin-top:6px;">
+          <label class="check-label"><input type="checkbox" id="letter-no-repeat"> No repeats</label>
+          <label class="check-label"><input type="checkbox" id="letter-sort"> Sort alphabetically</label>
+          <label class="check-label"><input type="checkbox" id="letter-spaces"> Separate with spaces</label>
+          <label class="check-label"><input type="checkbox" id="letter-weighted"> Frequency-weighted</label>
+          <label class="check-label"><input type="checkbox" id="letter-nato"> NATO phonetic output</label>
+        </div>
       </div>
       <div class="history-section" id="history-section" hidden>
         <h3>Recent</h3>

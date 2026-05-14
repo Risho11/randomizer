@@ -64,17 +64,40 @@
         Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
       </button>
       <div class="advanced-panel" id="adv-panel" hidden>
-        <div class="control-group">
-          <label for="num-count">How many</label>
-          <input type="number" id="num-count" value="1" min="1" max="200">
-        </div>
         <div class="control-group" id="decimals-group">
           <label for="num-decimals">Decimal places</label>
           <input type="number" id="num-decimals" value="2" min="1" max="10">
         </div>
+        <div class="control-group">
+          <label for="num-parity">Even / Odd</label>
+          <select id="num-parity">
+            <option value="any">Any</option>
+            <option value="even">Even only</option>
+            <option value="odd">Odd only</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="num-round-to">Round to nearest</label>
+          <select id="num-round-to">
+            <option value="0">No rounding</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="num-prefix">Prefix</label>
+          <input type="text" id="num-prefix" placeholder="e.g. $" style="width:80px;">
+        </div>
+        <div class="control-group">
+          <label for="num-suffix">Suffix</label>
+          <input type="text" id="num-suffix" placeholder="e.g. %" style="width:80px;">
+        </div>
         <div class="check-group" style="align-self:flex-end;">
           <label class="check-label"><input type="checkbox" id="num-integer" checked> Integers only</label>
-          <label class="check-label"><input type="checkbox" id="num-duplicates" checked> Allow duplicates</label>
+          <label class="check-label"><input type="checkbox" id="num-commas"> Add thousands separator</label>
         </div>
       </div>
       <div class="history-section" id="history-section" hidden>

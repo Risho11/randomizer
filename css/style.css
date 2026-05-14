@@ -198,7 +198,7 @@ a:hover { color: var(--accent-hover); }
 .color-preview-swatch { display: block; width: 72px; height: 72px; border: 1px solid var(--border); border-radius: var(--radius); margin: 0; flex-shrink: 0; }
 .color-result-row { display: flex; align-items: center; gap: 16px; justify-content: flex-start; }
 .color-codes { font-size: 14px; line-height: 1.8; text-align: left; }
-.color-codes strong { display: block; font-family: var(--mono); font-size: 1.6rem; font-weight: 800; color: var(--accent); letter-spacing: 0.02em; }
+.color-codes strong { display: block; font-family: var(--font); font-size: 1.6rem; font-weight: 600; color: var(--text); }
 
 /* ---- Team grid ---- */
 .teams-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-bottom: 10px; }

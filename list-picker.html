@@ -64,9 +64,33 @@
           <label for="list-count">How many to pick</label>
           <input type="number" id="list-count" value="1" min="1" max="200">
         </div>
-        <div class="check-group" style="align-self:flex-end;">
+        <div class="control-group">
+          <label for="list-case">Output case</label>
+          <select id="list-case">
+            <option value="asis">As-is</option>
+            <option value="upper">UPPERCASE</option>
+            <option value="lower">lowercase</option>
+            <option value="title">Title Case</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="list-separator">Output separator</label>
+          <select id="list-separator">
+            <option value="newline">One per line</option>
+            <option value="comma">Comma-separated</option>
+            <option value="bullet">Bullet list (•)</option>
+            <option value="numbered">Numbered list</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="list-filter">Filter items containing</label>
+          <input type="text" id="list-filter" placeholder="e.g. @gmail" style="width:140px;">
+        </div>
+        <div class="check-group" style="align-self:flex-end; margin-top:4px;">
           <label class="check-label"><input type="checkbox" id="list-duplicates"> Allow duplicates</label>
           <label class="check-label"><input type="checkbox" id="list-shuffle"> Shuffle full list</label>
+          <label class="check-label"><input type="checkbox" id="list-sort-out"> Sort output</label>
+          <label class="check-label"><input type="checkbox" id="list-weighted-hint"> Weight with :N syntax <span style="font-size:11px;color:var(--text-muted)">(Apple:3)</span></label>
         </div>
       </div>
       <div class="history-section" id="history-section" hidden>

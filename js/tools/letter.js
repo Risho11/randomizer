@@ -14,8 +14,34 @@
   var feedback   = document.getElementById('copy-feedback');
   var histList   = document.getElementById('history-list');
   var histSec    = document.getElementById('history-section');
+  var noRepeatEl = document.getElementById('letter-no-repeat');
+  var sortEl     = document.getElementById('letter-sort');
+  var spacesEl   = document.getElementById('letter-spaces');
+  var weightedEl = document.getElementById('letter-weighted');
+  var natoEl     = document.getElementById('letter-nato');
+  var presetEl   = document.getElementById('letter-preset');
 
   var AZ = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var VOWELS = 'AEIOU';
+  var CONSONANTS = 'BCDFGHJKLMNPQRSTVWXYZ';
+  var RARE = 'QXZJKVW';
+  var HEX_CHARS = '0123456789ABCDEF';
+  var WEIGHTED_POOL = 'EEEEEEEEEEEETTTTTTTTTAAAAAAAAOOOOOOOOIIIIIIIINNNNNNSSSSSSHHHHRRRRRRLLLLDDDDCCUUUUPPFFMMWWYGGVVBBKXQJZ';
+  var NATO = { A:'Alpha',B:'Bravo',C:'Charlie',D:'Delta',E:'Echo',F:'Foxtrot',G:'Golf',H:'Hotel',
+               I:'India',J:'Juliet',K:'Kilo',L:'Lima',M:'Mike',N:'November',O:'Oscar',P:'Papa',
+               Q:'Quebec',R:'Romeo',S:'Sierra',T:'Tango',U:'Uniform',V:'Victor',W:'Whiskey',
+               X:'X-ray',Y:'Yankee',Z:'Zulu' };
+
+  if (presetEl && alphabetEl && customEl && customGrp) {
+    presetEl.addEventListener('change', function() {
+      var v = presetEl.value;
+      if (!v) return;
+      var mapping = { vowels: VOWELS, consonants: CONSONANTS, rare: RARE, hex: HEX_CHARS };
+      customEl.value = mapping[v] || '';
+      alphabetEl.value = 'custom';
+      customGrp.style.display = '';
+    });
+  }
 
   if (alphabetEl && customGrp) {
     alphabetEl.addEventListener('change', function () {
@@ -45,23 +71,44 @@
   }
 
   function generate() {
-    var pool  = getPool();
-    var count = Math.min(Math.max(parseInt(countEl ? countEl.value : 1) || 1, 1), 100);
-    var caseMode = caseEl ? caseEl.value : 'upper';
+    var pool      = getPool();
+    var count     = Math.min(Math.max(parseInt(countEl ? countEl.value : 1) || 1, 1), 100);
+    var caseMode  = caseEl ? caseEl.value : 'upper';
+    var noRepeat  = noRepeatEl && noRepeatEl.checked;
+    var doSort    = sortEl && sortEl.checked;
+    var doSpaces  = spacesEl && spacesEl.checked;
+    var doWeighted = weightedEl && weightedEl.checked;
+    var doNato    = natoEl && natoEl.checked;
+    var srcPool   = doWeighted ? WEIGHTED_POOL.split('').filter(function(c) { return pool.indexOf(c) !== -1; }).join('') || pool : pool;
+
+    if (noRepeat && count > pool.length) count = pool.length;
 
     var letters = [];
-    for (var i = 0; i < count; i++) {
-      letters.push(pool[Math.floor(Math.random() * pool.length)]);
+    var used = {};
+    var attempts = 0;
+    while (letters.length < count && attempts < 5000) {
+      attempts++;
+      var ch = srcPool[Math.floor(Math.random() * srcPool.length)];
+      if (!noRepeat || !used[ch]) { letters.push(ch); used[ch] = true; }
     }
 
-    var result = applyCase(letters.join(''), caseMode);
+    if (doSort) letters.sort();
+    var cased = applyCase(letters.join(''), caseMode).split('');
+
+    var display;
+    if (doNato) {
+      display = cased.map(function(c) { return NATO[c.toUpperCase()] || c; }).join(' · ');
+    } else if (doSpaces) {
+      display = cased.join(' ');
+    } else if (count > 20) {
+      display = cased.join('').match(/.{1,20}/g).join('\n');
+    } else {
+      display = cased.join('');
+    }
 
     resultBox.hidden = false;
-    resultVal.textContent = count > 20
-      ? result.match(/.{1,20}/g).join('\n')
-      : result;
-
-    addToHistory(histList, histSec, result.length > 20 ? result.slice(0, 20) + '…' : result);
+    resultVal.textContent = display;
+    addToHistory(histList, histSec, cased.join('').slice(0, 20) + (count > 20 ? '…' : ''));
   }
 
   genBtn   && genBtn.addEventListener('click', generate);

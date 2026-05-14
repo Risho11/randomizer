@@ -75,8 +75,35 @@
           </select>
         </div>
         <div class="control-group">
-          <label for="date-count">How many</label>
-          <input type="number" id="date-count" value="1" min="1" max="50">
+          <label for="date-day-filter">Day filter</label>
+          <select id="date-day-filter">
+            <option value="any">Any day</option>
+            <option value="weekday">Weekdays only</option>
+            <option value="weekend">Weekends only</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="date-relative">Relative to today</label>
+          <select id="date-relative">
+            <option value="any">Any</option>
+            <option value="past">Past dates only</option>
+            <option value="future">Future dates only</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="date-season">Season</label>
+          <select id="date-season">
+            <option value="any">Any</option>
+            <option value="spring">Spring (Mar–May)</option>
+            <option value="summer">Summer (Jun–Aug)</option>
+            <option value="fall">Fall (Sep–Nov)</option>
+            <option value="winter">Winter (Dec–Feb)</option>
+          </select>
+        </div>
+        <div class="check-group" style="align-self:flex-end; margin-top:4px;">
+          <label class="check-label"><input type="checkbox" id="date-show-day"> Show day of week</label>
+          <label class="check-label"><input type="checkbox" id="date-show-distance"> Show distance from today</label>
+          <label class="check-label"><input type="checkbox" id="date-no-holidays"> Avoid major US holidays</label>
         </div>
       </div>
       <div class="history-section" id="history-section" hidden>

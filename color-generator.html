@@ -47,6 +47,8 @@
             <strong id="color-hex" aria-live="polite">—</strong>
             <span id="color-rgb"></span>
             <span id="color-hsl"></span>
+            <span id="color-cmyk" style="display:none;"></span>
+            <span id="color-contrast-info" style="display:none;font-size:12px;"></span>
           </div>
         </div>
       </div>
@@ -72,8 +74,44 @@
       </button>
       <div class="advanced-panel" id="adv-panel" hidden>
         <div class="control-group">
-          <label for="color-count">How many colors</label>
-          <input type="number" id="color-count" value="1" min="1" max="20">
+          <label for="color-tone">Tone</label>
+          <select id="color-tone">
+            <option value="any">Any</option>
+            <option value="warm">Warm (reds / oranges)</option>
+            <option value="cool">Cool (blues / greens)</option>
+            <option value="pastel">Pastel</option>
+            <option value="vivid">Vivid</option>
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+            <option value="neutral">Neutral / Gray</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="color-hue">Hue family</label>
+          <select id="color-hue">
+            <option value="any">Any</option>
+            <option value="red">Red</option>
+            <option value="orange">Orange</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="cyan">Cyan / Teal</option>
+            <option value="blue">Blue</option>
+            <option value="purple">Purple / Violet</option>
+            <option value="pink">Pink / Magenta</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="color-min-l">Min lightness <span style="font-size:11px;font-weight:400;color:var(--text-muted)">(0–100)</span></label>
+          <input type="number" id="color-min-l" value="0" min="0" max="100" style="width:70px;">
+        </div>
+        <div class="control-group">
+          <label for="color-max-l">Max lightness <span style="font-size:11px;font-weight:400;color:var(--text-muted)">(0–100)</span></label>
+          <input type="number" id="color-max-l" value="100" min="0" max="100" style="width:70px;">
+        </div>
+        <div class="check-group" style="align-self:flex-end; margin-top:4px;">
+          <label class="check-label"><input type="checkbox" id="color-show-cmyk"> Show CMYK</label>
+          <label class="check-label"><input type="checkbox" id="color-css-var"> Copy as CSS variable</label>
+          <label class="check-label"><input type="checkbox" id="color-contrast"> Show contrast rating</label>
         </div>
       </div>
       <div class="history-section" id="history-section" hidden>

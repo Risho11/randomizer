@@ -68,11 +68,17 @@
         else name = pick(Math.random() < 0.5 ? MALE_FIRST : FEMALE_FIRST);
       } else if (type === 'full') {
         var fn;
-        if (gender === 'male')   fn = pick(MALE_FIRST);
-        else if (gender === 'female') fn = pick(FEMALE_FIRST);
-        else if (gender === 'neutral') fn = pick(NEUTRAL);
-        else fn = pick(Math.random() < 0.5 ? MALE_FIRST : FEMALE_FIRST);
-        name = fn + ' ' + pick(LAST_NAMES);
+        var pool2 = gender === 'male' ? MALE_FIRST : gender === 'female' ? FEMALE_FIRST : gender === 'neutral' ? NEUTRAL : (Math.random() < 0.5 ? MALE_FIRST : FEMALE_FIRST);
+        fn = pick(pool2);
+        var includeMiddle = middleEl && middleEl.checked;
+        if (includeMiddle) {
+          var mn = pick(pool2);
+          name = fn + ' ' + mn + ' ' + pick(LAST_NAMES);
+        } else {
+          name = fn + ' ' + pick(LAST_NAMES);
+        }
+      } else if (type === 'last') {
+        name = pick(LAST_NAMES);
       } else if (type === 'fantasy') {
         name = pick(FANTASY_FIRST) + ' ' + pick(FANTASY_LAST);
       } else if (type === 'neutral') {
@@ -83,9 +89,13 @@
     return names;
   }
 
-  var typeEl    = document.getElementById('name-type');
-  var genderEl  = document.getElementById('name-gender');
-  var countEl   = document.getElementById('name-count');
+  var typeEl          = document.getElementById('name-type');
+  var genderEl        = document.getElementById('name-gender');
+  var middleEl        = document.getElementById('name-middle');
+  var lengthEl        = document.getElementById('name-length');
+  var honorificEl     = document.getElementById('name-honorific');
+  var formatEl        = document.getElementById('name-format');
+  var alliterationEl  = document.getElementById('name-alliteration');
   var genBtn    = document.getElementById('generate-btn');
   var againBtn  = document.getElementById('again-btn');
   var copyBtn   = document.getElementById('copy-btn');
@@ -96,29 +106,84 @@
   var histList  = document.getElementById('history-list');
   var histSec   = document.getElementById('history-section');
 
-  function generate() {
-    var type   = typeEl ? typeEl.value : 'full';
-    var gender = genderEl ? genderEl.value : 'any';
-    var count  = Math.min(Math.max(parseInt(countEl ? countEl.value : 1) || 1, 1), 50);
-    var names  = generateName(type, gender, count);
+  function updateMiddleVisibility() {
+    var typeVal = typeEl ? typeEl.value : 'full';
+    var mg = document.getElementById('middle-name-group');
+    if (mg) mg.style.display = typeVal === 'full' ? '' : 'none';
+  }
+  if (typeEl) typeEl.addEventListener('change', updateMiddleVisibility);
 
-    resultBox.hidden = false;
-    if (names.length === 1) {
-      resultVal.textContent = names[0];
-      if (resultList) resultList.innerHTML = '';
-    } else {
-      resultVal.textContent = '';
-      if (resultList) {
-        resultList.innerHTML = '';
-        names.forEach(function (n, i) {
-          var li = document.createElement('li');
-          li.innerHTML = '<span class="item-num">' + (i + 1) + '.</span> ' + n;
-          resultList.appendChild(li);
-        });
+  function filterByLength(pool, mode) {
+    if (mode === 'short') return pool.filter(function(n) { return n.length <= 5; }) || pool;
+    if (mode === 'long')  return pool.filter(function(n) { return n.length >= 8; }) || pool;
+    return pool;
+  }
+
+  function applyFormat(first, last, fmt) {
+    if (fmt === 'lastfirst') return last + ', ' + first;
+    if (fmt === 'initials') {
+      var parts = (first + ' ' + last).split(' ').filter(Boolean);
+      return parts.map(function(p) { return p[0].toUpperCase() + '.'; }).join('');
+    }
+    return first + (last ? ' ' + last : '');
+  }
+
+  function generate() {
+    var type        = typeEl ? typeEl.value : 'full';
+    var gender      = genderEl ? genderEl.value : 'any';
+    var lengthPref  = lengthEl ? lengthEl.value : 'any';
+    var honorific   = honorificEl ? honorificEl.value : '';
+    var fmt         = formatEl ? formatEl.value : 'full';
+    var alliterate  = alliterationEl ? alliterationEl.checked : false;
+
+    var name = '';
+    var attempts = 0;
+    do {
+      attempts++;
+      var pool = gender === 'male' ? MALE_FIRST : gender === 'female' ? FEMALE_FIRST : gender === 'neutral' ? NEUTRAL : (Math.random() < 0.5 ? MALE_FIRST : FEMALE_FIRST);
+      pool = filterByLength(pool, lengthPref);
+      if (!pool.length) pool = gender === 'male' ? MALE_FIRST : gender === 'female' ? FEMALE_FIRST : NEUTRAL;
+
+      if (type === 'first') {
+        name = pick(pool);
+      } else if (type === 'last') {
+        var lp = filterByLength(LAST_NAMES, lengthPref);
+        if (!lp.length) lp = LAST_NAMES;
+        name = pick(lp);
+      } else if (type === 'full') {
+        var fn = pick(pool);
+        var mn = (middleEl && middleEl.checked) ? ' ' + pick(pool) : '';
+        var ln;
+        if (alliterate) {
+          var letterMatch = LAST_NAMES.filter(function(l) { return l[0] === fn[0]; });
+          ln = letterMatch.length ? pick(letterMatch) : pick(LAST_NAMES);
+        } else {
+          ln = pick(filterByLength(LAST_NAMES, lengthPref) || LAST_NAMES);
+        }
+        name = applyFormat(fn + mn, ln, fmt);
+      } else if (type === 'fantasy') {
+        var ffp = filterByLength(FANTASY_FIRST, lengthPref);
+        if (!ffp.length) ffp = FANTASY_FIRST;
+        var flp = filterByLength(FANTASY_LAST, lengthPref);
+        if (!flp.length) flp = FANTASY_LAST;
+        name = pick(ffp) + ' ' + pick(flp);
+      } else if (type === 'neutral') {
+        var np = filterByLength(NEUTRAL, lengthPref);
+        if (!np.length) np = NEUTRAL;
+        name = pick(np);
       }
+
+      if (alliterate && type !== 'full' && type !== 'fantasy') break;
+    } while (attempts < 200);
+
+    if (honorific && (type === 'full' || type === 'first')) {
+      name = honorific + ' ' + name;
     }
 
-    addToHistory(histList, histSec, names.length === 1 ? names[0] : names.slice(0, 3).join(', ') + (names.length > 3 ? '…' : ''));
+    resultBox.hidden = false;
+    resultVal.textContent = name;
+    if (resultList) resultList.innerHTML = '';
+    addToHistory(histList, histSec, name);
   }
 
   function getCopyText() {

@@ -3,11 +3,14 @@
 
   var minEl      = document.getElementById('num-min');
   var maxEl      = document.getElementById('num-max');
-  var countEl    = document.getElementById('num-count');
   var intEl      = document.getElementById('num-integer');
   var decEl      = document.getElementById('num-decimals');
   var decGroup   = document.getElementById('decimals-group');
-  var dupEl      = document.getElementById('num-duplicates');
+  var prefixEl   = document.getElementById('num-prefix');
+  var suffixEl   = document.getElementById('num-suffix');
+  var parityEl   = document.getElementById('num-parity');
+  var roundToEl  = document.getElementById('num-round-to');
+  var commasEl   = document.getElementById('num-commas');
   var genBtn     = document.getElementById('generate-btn');
   var againBtn   = document.getElementById('again-btn');
   var copyBtn    = document.getElementById('copy-btn');
@@ -19,50 +22,43 @@
   var histSec    = document.getElementById('history-section');
 
   function generate() {
-    var min    = parseFloat(minEl.value);
-    var max    = parseFloat(maxEl.value);
-    var count  = Math.min(Math.max(parseInt(countEl.value) || 1, 1), 200);
-    var isInt  = intEl.checked;
-    var noDup  = dupEl && !dupEl.checked;
-    var decs   = parseInt(decEl ? decEl.value : 2) || 2;
+    var min      = parseFloat(minEl.value);
+    var max      = parseFloat(maxEl.value);
+    var isInt    = intEl.checked;
+    var decs     = parseInt(decEl ? decEl.value : 2) || 2;
+    var prefix   = prefixEl ? prefixEl.value : '';
+    var suffix   = suffixEl ? suffixEl.value : '';
+    var parity   = parityEl ? parityEl.value : 'any';
+    var roundTo  = roundToEl ? parseInt(roundToEl.value) : 0;
+    var useCommas = commasEl ? commasEl.checked : false;
 
-    if (isNaN(min) || isNaN(max)) {
-      showError('Please enter valid min and max values.');
-      return;
-    }
-    if (min > max) {
-      showError('Min must be less than or equal to max.');
-      return;
-    }
+    if (isNaN(min) || isNaN(max)) { showError('Please enter valid min and max values.'); return; }
+    if (min > max) { showError('Min must be less than or equal to max.'); return; }
 
-    if (isInt && noDup) {
-      var range = Math.floor(max) - Math.ceil(min) + 1;
-      if (count > range) {
-        showError('Cannot generate ' + count + ' unique integers in this range (only ' + range + ' available).');
-        return;
-      }
-    }
-
-    var results = [];
-    var used    = new Set();
+    var val;
     var attempts = 0;
-
-    while (results.length < count && attempts < 50000) {
+    do {
       attempts++;
-      var val;
       if (isInt) {
         val = Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + Math.ceil(min);
       } else {
         val = parseFloat((Math.random() * (max - min) + min).toFixed(decs));
       }
-      var key = String(val);
-      if (!noDup || !used.has(key)) {
-        results.push(val);
-        used.add(key);
-      }
+      if (roundTo > 0 && isInt) val = Math.round(val / roundTo) * roundTo;
+      if (parity === 'even' && val % 2 !== 0) continue;
+      if (parity === 'odd'  && val % 2 === 0) continue;
+      break;
+    } while (attempts < 5000);
+
+    var numStr;
+    if (useCommas && isInt) {
+      numStr = val.toLocaleString('en-US');
+    } else {
+      numStr = String(val);
     }
 
-    displayResults(results);
+    var display = prefix + numStr + suffix;
+    displayResults([display]);
   }
 
   function showError(msg) {
@@ -123,7 +119,7 @@
   });
 
   // Keyboard: Enter in inputs triggers generate
-  [minEl, maxEl, countEl].forEach(function (el) {
+  [minEl, maxEl].forEach(function (el) {
     el && el.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') generate();
     });

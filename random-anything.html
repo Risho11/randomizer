@@ -64,6 +64,30 @@
           <label for="any-count">How many to pick</label>
           <input type="number" id="any-count" value="1" min="1" max="50">
         </div>
+        <div class="control-group">
+          <label for="any-case">Output case</label>
+          <select id="any-case">
+            <option value="asis">As-is</option>
+            <option value="upper">UPPERCASE</option>
+            <option value="lower">lowercase</option>
+            <option value="title">Title Case</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="any-separator">Output separator</label>
+          <select id="any-separator">
+            <option value="newline">One per line</option>
+            <option value="comma">Comma-separated</option>
+            <option value="slash">Slash / separated</option>
+            <option value="bullet">Bullet list (•)</option>
+          </select>
+        </div>
+        <div class="check-group" style="align-self:flex-end; margin-top:4px;">
+          <label class="check-label"><input type="checkbox" id="any-duplicates"> Allow same item more than once</label>
+          <label class="check-label"><input type="checkbox" id="any-sort"> Sort output</label>
+          <label class="check-label"><input type="checkbox" id="any-weighted-hint"> Weight with :N syntax <span style="font-size:11px;color:var(--text-muted)">(Pizza:3)</span></label>
+          <label class="check-label"><input type="checkbox" id="any-persistent"> Remove picked (wheel-down mode)</label>
+        </div>
       </div>
       <div class="history-section" id="history-section" hidden>
         <h3>Recent</h3>
