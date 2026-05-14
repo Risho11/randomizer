@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact RandomlyGenerated.org with questions, feedback, or tool suggestions.">
+  <title>Contact — RandomlyGenerated.org</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Randomly<span class="logo-accent">Generated</span></a>
+    <nav class="header-nav"><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+<button class="sidebar-toggle" id="sidebar-toggle-btn" aria-expanded="false" aria-controls="sidebar">&#9776; Tools</button>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="sidebar-nav" aria-label="Tool navigation">
+      <span class="sidebar-heading">Generators</span>
+      <ul>
+        <li><a href="number-generator.html">Random Number</a></li>
+        <li><a href="name-generator.html">Random Name</a></li>
+        <li><a href="yes-no-generator.html">Random Yes/No</a></li>
+        <li><a href="letter-generator.html">Random Letter</a></li>
+        <li><a href="color-generator.html">Random Color</a></li>
+        <li><a href="date-generator.html">Random Date</a></li>
+        <li><a href="time-generator.html">Random Time</a></li>
+        <li><a href="password-generator.html">Random Password</a></li>
+        <li><a href="list-picker.html">Random List Picker</a></li>
+        <li><a href="team-picker.html">Random Team Picker</a></li>
+        <li><a href="random-anything.html">Random Anything</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="static-page">
+      <h1>Contact</h1>
+      <p>Use this form to send questions, report a bug, or suggest a new tool. We read everything sent here.</p>
+
+      <!-- Replace this form's action with your form handler (e.g. Formspree, Netlify Forms, or your own endpoint) -->
+      <!-- Formspree example: <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"> -->
+      <form class="contact-form" id="contact-form" action="#" method="POST" novalidate>
+        <div class="control-group">
+          <label for="contact-name">Name</label>
+          <input type="text" id="contact-name" name="name" autocomplete="name" required placeholder="Your name">
+        </div>
+        <div class="control-group">
+          <label for="contact-email">Email address</label>
+          <input type="email" id="contact-email" name="email" autocomplete="email" required placeholder="you@example.com">
+        </div>
+        <div class="control-group">
+          <label for="contact-subject">Subject</label>
+          <input type="text" id="contact-subject" name="subject" required placeholder="Bug report, tool suggestion, other…">
+        </div>
+        <div class="control-group">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" required placeholder="Describe your question or suggestion…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <p class="form-note" id="form-status" aria-live="polite"></p>
+      </form>
+
+      <p style="margin-top:24px;font-size:13.5px;color:var(--text-muted);">
+        To activate this form, replace the <code>action="#"</code> attribute with your form handler URL.
+        <a href="https://formspree.io" rel="noopener noreferrer" target="_blank">Formspree</a> is a free option for static sites.
+      </p>
+    </div>
+  </main>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2025 RandomlyGenerated.org</span>
+    <nav class="footer-nav" aria-label="Footer links">
+      <a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script>
+  // Basic client-side form validation feedback
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var status = document.getElementById('form-status');
+    var name    = document.getElementById('contact-name').value.trim();
+    var email   = document.getElementById('contact-email').value.trim();
+    var message = document.getElementById('contact-message').value.trim();
+    if (!name || !email || !message) {
+      status.textContent = 'Please fill in all required fields.';
+      status.style.color = '#b32d2d';
+      return;
+    }
+    status.textContent = 'To send this form, connect it to a form handler (see note below).';
+    status.style.color = 'var(--text-muted)';
+  });
+</script>
+</body>
+</html>

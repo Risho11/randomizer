@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Generate random dates between any two dates. Set a date range, choose a format, and generate instantly. Useful for testing, games, and more.">
+  <title>Random Date Generator — RandomlyGenerated.org</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Randomly<span class="logo-accent">Generated</span></a>
+    <nav class="header-nav"><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+<button class="sidebar-toggle" id="sidebar-toggle-btn" aria-expanded="false" aria-controls="sidebar">&#9776; Tools</button>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="sidebar-nav" aria-label="Tool navigation">
+      <span class="sidebar-heading">Generators</span>
+      <ul>
+        <li><a href="number-generator.html">Random Number</a></li>
+        <li><a href="name-generator.html">Random Name</a></li>
+        <li><a href="yes-no-generator.html">Random Yes/No</a></li>
+        <li><a href="letter-generator.html">Random Letter</a></li>
+        <li><a href="color-generator.html">Random Color</a></li>
+        <li><a href="date-generator.html">Random Date</a></li>
+        <li><a href="time-generator.html">Random Time</a></li>
+        <li><a href="password-generator.html">Random Password</a></li>
+        <li><a href="list-picker.html">Random List Picker</a></li>
+        <li><a href="team-picker.html">Random Team Picker</a></li>
+        <li><a href="random-anything.html">Random Anything</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="tool-header">
+      <h1>Random Date Generator</h1>
+      <p class="tool-tagline">Generate random dates between any two dates in multiple formats.</p>
+    </div>
+    <section class="tool-section" aria-label="Date generator tool">
+      <div class="tool-controls">
+        <div class="control-group">
+          <label for="date-start">Start date</label>
+          <input type="date" id="date-start" value="2000-01-01">
+        </div>
+        <div class="control-group">
+          <label for="date-end">End date</label>
+          <input type="date" id="date-end" value="2025-12-31">
+        </div>
+        <div class="control-group">
+          <label for="date-format">Format</label>
+          <select id="date-format">
+            <option value="long">January 5, 2024</option>
+            <option value="short">Jan 5, 2024</option>
+            <option value="iso">2024-01-05</option>
+            <option value="us">01/05/2024</option>
+            <option value="eu">05/01/2024</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="date-count">How many</label>
+          <input type="number" id="date-count" value="1" min="1" max="50">
+        </div>
+      </div>
+      <div class="btn-actions">
+        <button class="btn btn-primary" id="generate-btn">Generate</button>
+      </div>
+      <div class="result-box" id="result-box" hidden>
+        <div class="result-value" id="result-value" aria-live="polite"></div>
+        <ul class="results-list" id="result-list" aria-live="polite"></ul>
+        <div class="result-actions">
+          <button class="btn btn-secondary btn-sm" id="again-btn">Generate Again</button>
+          <button class="btn btn-secondary btn-sm" id="copy-btn">Copy</button>
+          <span class="copy-feedback" id="copy-feedback" aria-live="polite"></span>
+        </div>
+      </div>
+      <div class="history-section" id="history-section" hidden>
+        <h3>Recent results</h3>
+        <ul class="history-list" id="history-list"></ul>
+      </div>
+    </section>
+    <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+    <div class="content-sections">
+      <section class="content-block">
+        <h2>About this tool</h2>
+        <p>This tool picks a random date between your chosen start and end dates. Every day in the range has an equal chance of being selected. The result is displayed in the format you choose.</p>
+      </section>
+      <section class="content-block">
+        <h2>How to use it</h2>
+        <ol>
+          <li>Set a <strong>Start date</strong> and <strong>End date</strong> for the range.</li>
+          <li>Choose a display format.</li>
+          <li>Set how many dates you want.</li>
+          <li>Click <strong>Generate</strong>.</li>
+        </ol>
+      </section>
+      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+      <section class="content-block">
+        <h2>Common uses</h2>
+        <ul>
+          <li>Generating test data with realistic dates for databases or spreadsheets</li>
+          <li>Picking a random historical date for trivia or educational activities</li>
+          <li>Assigning random due dates in simulations</li>
+          <li>Game events and randomized calendars</li>
+          <li>Birthday guessing games</li>
+        </ul>
+      </section>
+      <section class="content-block faq-section">
+        <h2>FAQ</h2>
+        <dl>
+          <dt>Does it include the start and end dates?</dt>
+          <dd>Yes. Both endpoints are included in the possible range.</dd>
+          <dt>What date formats are available?</dt>
+          <dd>Long (January 5, 2024), short (Jan 5, 2024), ISO (2024-01-05), US (MM/DD/YYYY), and European (DD/MM/YYYY).</dd>
+          <dt>Can I generate multiple dates?</dt>
+          <dd>Yes, up to 50 at once. Dates may repeat — they are picked independently.</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2025 RandomlyGenerated.org</span>
+    <nav class="footer-nav" aria-label="Footer links">
+      <a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script src="js/tools/date-tool.js"></script>
+</body>
+</html>

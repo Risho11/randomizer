@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Generate random times in any range. Choose 12-hour or 24-hour format, include or exclude seconds, and set how many you need.">
+  <title>Random Time Generator — RandomlyGenerated.org</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Randomly<span class="logo-accent">Generated</span></a>
+    <nav class="header-nav"><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+<button class="sidebar-toggle" id="sidebar-toggle-btn" aria-expanded="false" aria-controls="sidebar">&#9776; Tools</button>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="sidebar-nav" aria-label="Tool navigation">
+      <span class="sidebar-heading">Generators</span>
+      <ul>
+        <li><a href="number-generator.html">Random Number</a></li>
+        <li><a href="name-generator.html">Random Name</a></li>
+        <li><a href="yes-no-generator.html">Random Yes/No</a></li>
+        <li><a href="letter-generator.html">Random Letter</a></li>
+        <li><a href="color-generator.html">Random Color</a></li>
+        <li><a href="date-generator.html">Random Date</a></li>
+        <li><a href="time-generator.html">Random Time</a></li>
+        <li><a href="password-generator.html">Random Password</a></li>
+        <li><a href="list-picker.html">Random List Picker</a></li>
+        <li><a href="team-picker.html">Random Team Picker</a></li>
+        <li><a href="random-anything.html">Random Anything</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="tool-header">
+      <h1>Random Time Generator</h1>
+      <p class="tool-tagline">Generate random times in any range, in 12-hour or 24-hour format.</p>
+    </div>
+    <section class="tool-section" aria-label="Time generator tool">
+      <div class="tool-controls">
+        <div class="control-group">
+          <label for="time-start">Start time</label>
+          <input type="time" id="time-start" value="00:00">
+        </div>
+        <div class="control-group">
+          <label for="time-end">End time</label>
+          <input type="time" id="time-end" value="23:59">
+        </div>
+        <div class="control-group">
+          <label for="time-format">Format</label>
+          <select id="time-format">
+            <option value="12h">12-hour (AM/PM)</option>
+            <option value="24h">24-hour</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="time-count">How many</label>
+          <input type="number" id="time-count" value="1" min="1" max="50">
+        </div>
+        <div class="control-group" style="justify-content:flex-end;">
+          <label class="check-label">
+            <input type="checkbox" id="time-seconds">
+            Include seconds
+          </label>
+        </div>
+      </div>
+      <div class="btn-actions">
+        <button class="btn btn-primary" id="generate-btn">Generate</button>
+      </div>
+      <div class="result-box" id="result-box" hidden>
+        <div class="result-value" id="result-value" aria-live="polite" style="font-family:var(--mono);"></div>
+        <ul class="results-list" id="result-list" aria-live="polite"></ul>
+        <div class="result-actions">
+          <button class="btn btn-secondary btn-sm" id="again-btn">Generate Again</button>
+          <button class="btn btn-secondary btn-sm" id="copy-btn">Copy</button>
+          <span class="copy-feedback" id="copy-feedback" aria-live="polite"></span>
+        </div>
+      </div>
+      <div class="history-section" id="history-section" hidden>
+        <h3>Recent results</h3>
+        <ul class="history-list" id="history-list"></ul>
+      </div>
+    </section>
+    <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+    <div class="content-sections">
+      <section class="content-block">
+        <h2>About this tool</h2>
+        <p>This tool generates a random time between two times you specify. The result can be in 12-hour (AM/PM) or 24-hour format, with or without seconds.</p>
+      </section>
+      <section class="content-block">
+        <h2>How to use it</h2>
+        <ol>
+          <li>Set a <strong>Start time</strong> and <strong>End time</strong>.</li>
+          <li>Choose 12-hour or 24-hour format.</li>
+          <li>Optionally check <em>Include seconds</em>.</li>
+          <li>Click <strong>Generate</strong>.</li>
+        </ol>
+      </section>
+      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+      <section class="content-block">
+        <h2>Common uses</h2>
+        <ul>
+          <li>Generating test data with timestamps</li>
+          <li>Scheduling games and puzzles</li>
+          <li>Time-based trivia and quiz games</li>
+          <li>Teaching time concepts</li>
+          <li>Simulated event logs for development</li>
+        </ul>
+      </section>
+      <section class="content-block faq-section">
+        <h2>FAQ</h2>
+        <dl>
+          <dt>Can I restrict to business hours?</dt>
+          <dd>Yes — set start time to 09:00 and end time to 17:00 to get times within that window.</dd>
+          <dt>Does it work across midnight?</dt>
+          <dd>Not currently. The start time must be before the end time within the same day.</dd>
+          <dt>Can I get multiple times?</dt>
+          <dd>Yes, up to 50 at once.</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2025 RandomlyGenerated.org</span>
+    <nav class="footer-nav" aria-label="Footer links">
+      <a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script src="js/tools/time-tool.js"></script>
+</body>
+</html>

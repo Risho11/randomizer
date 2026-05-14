@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Generate random letters from A to Z. Choose uppercase, lowercase, or mixed, use a custom alphabet, and set how many letters you need.">
+  <title>Random Letter Generator — RandomlyGenerated.org</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Randomly<span class="logo-accent">Generated</span></a>
+    <nav class="header-nav"><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+<button class="sidebar-toggle" id="sidebar-toggle-btn" aria-expanded="false" aria-controls="sidebar">&#9776; Tools</button>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="sidebar-nav" aria-label="Tool navigation">
+      <span class="sidebar-heading">Generators</span>
+      <ul>
+        <li><a href="number-generator.html">Random Number</a></li>
+        <li><a href="name-generator.html">Random Name</a></li>
+        <li><a href="yes-no-generator.html">Random Yes/No</a></li>
+        <li><a href="letter-generator.html">Random Letter</a></li>
+        <li><a href="color-generator.html">Random Color</a></li>
+        <li><a href="date-generator.html">Random Date</a></li>
+        <li><a href="time-generator.html">Random Time</a></li>
+        <li><a href="password-generator.html">Random Password</a></li>
+        <li><a href="list-picker.html">Random List Picker</a></li>
+        <li><a href="team-picker.html">Random Team Picker</a></li>
+        <li><a href="random-anything.html">Random Anything</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="tool-header">
+      <h1>Random Letter Generator</h1>
+      <p class="tool-tagline">Generate random letters from A–Z or a custom alphabet.</p>
+    </div>
+    <section class="tool-section" aria-label="Letter generator tool">
+      <div class="tool-controls">
+        <div class="control-group">
+          <label for="letter-alphabet">Alphabet</label>
+          <select id="letter-alphabet">
+            <option value="az">A–Z (standard)</option>
+            <option value="custom">Custom alphabet</option>
+          </select>
+        </div>
+        <div class="control-group" id="custom-alpha-group" style="display:none;">
+          <label for="letter-custom">Custom letters</label>
+          <input type="text" id="letter-custom" placeholder="e.g. AEIOU" style="width:160px;">
+        </div>
+        <div class="control-group">
+          <label for="letter-case">Case</label>
+          <select id="letter-case">
+            <option value="upper">Uppercase</option>
+            <option value="lower">Lowercase</option>
+            <option value="mixed">Mixed</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="letter-count">How many</label>
+          <input type="number" id="letter-count" value="1" min="1" max="100">
+        </div>
+      </div>
+      <div class="btn-actions">
+        <button class="btn btn-primary" id="generate-btn">Generate</button>
+      </div>
+      <div class="result-box" id="result-box" hidden>
+        <div class="result-value" id="result-value" aria-live="polite" style="font-family:var(--mono);letter-spacing:0.1em;word-break:break-all;"></div>
+        <div class="result-actions">
+          <button class="btn btn-secondary btn-sm" id="again-btn">Generate Again</button>
+          <button class="btn btn-secondary btn-sm" id="copy-btn">Copy</button>
+          <span class="copy-feedback" id="copy-feedback" aria-live="polite"></span>
+        </div>
+      </div>
+      <div class="history-section" id="history-section" hidden>
+        <h3>Recent results</h3>
+        <ul class="history-list" id="history-list"></ul>
+      </div>
+    </section>
+    <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+    <div class="content-sections">
+      <section class="content-block">
+        <h2>About this tool</h2>
+        <p>This tool picks random letters from the standard A–Z alphabet or from a custom set you define. You can get one letter or many, in uppercase, lowercase, or a random mix of both.</p>
+      </section>
+      <section class="content-block">
+        <h2>How to use it</h2>
+        <ol>
+          <li>Choose <em>A–Z (standard)</em> or <em>Custom alphabet</em>. If custom, type the letters you want to include.</li>
+          <li>Select the case — uppercase, lowercase, or mixed.</li>
+          <li>Enter how many letters you want.</li>
+          <li>Click <strong>Generate</strong>.</li>
+        </ol>
+      </section>
+      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+      <section class="content-block">
+        <h2>Common uses</h2>
+        <ul>
+          <li>Picking Scrabble or Boggle tiles</li>
+          <li>Word game starters and creative writing prompts</li>
+          <li>Teaching the alphabet or spelling patterns</li>
+          <li>Building simple codes or substitution ciphers</li>
+          <li>Randomly assigning groups a label (Team A, Team B…)</li>
+        </ul>
+      </section>
+      <section class="content-block faq-section">
+        <h2>FAQ</h2>
+        <dl>
+          <dt>Can I use only vowels or consonants?</dt>
+          <dd>Yes — select <em>Custom alphabet</em> and type just the letters you want to draw from (e.g. <code>AEIOU</code> for vowels only).</dd>
+          <dt>Does it allow repeated letters?</dt>
+          <dd>Yes. Each letter is drawn independently, so the same letter can appear more than once.</dd>
+          <dt>What is the maximum count?</dt>
+          <dd>Up to 100 letters at a time.</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2025 RandomlyGenerated.org</span>
+    <nav class="footer-nav" aria-label="Footer links">
+      <a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script src="js/tools/letter.js"></script>
+</body>
+</html>
