@@ -66,19 +66,23 @@ a:hover { color: var(--accent-hover); }
 .tool-tagline { font-size: 14px; color: var(--text-muted); }
 
 /* ---- Tool section ---- */
-.tool-section { background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; }
+.tool-section { background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px 18px; margin-bottom: 20px; }
 
-/* ---- Result box (always visible) ---- */
+/* ---- Result box (always visible, fixed height — never changes size) ---- */
 .result-box {
   background: var(--result-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 22px 20px 16px;
-  margin-bottom: 12px;
-  min-height: 90px;
+  padding: 10px 16px;
+  margin-bottom: 6px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  text-align: center;
+  flex-shrink: 0;
 }
 
 .result-value {
@@ -88,21 +92,21 @@ a:hover { color: var(--accent-hover); }
   color: var(--accent);
   word-break: break-all;
   line-height: 1.15;
-  margin-bottom: 10px;
   text-align: center;
+  width: 100%;
 }
 .result-value.is-placeholder::before {
   content: 'Click Generate to see a result';
   font-family: var(--font);
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 400;
   color: var(--text-muted);
   font-style: italic;
 }
 .result-value.result-mono { font-family: var(--mono); font-size: 1.3rem; font-weight: 700; font-style: normal; }
-.result-value.result-large-list { font-family: var(--font); font-size: 1rem; font-weight: 400; color: var(--text); }
+.result-value.result-large-list { font-family: var(--font); font-size: 0.95rem; font-weight: 400; color: var(--text); }
 
-.result-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 4px; }
+.result-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
 .copy-feedback { font-size: 12.5px; color: var(--accent); font-weight: 600; }
 
 /* ---- History ---- */
@@ -112,10 +116,10 @@ a:hover { color: var(--accent-hover); }
 .history-list li { font-size: 12.5px; color: var(--text-muted); background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2px 8px; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* ---- Generate button (full-width primary) ---- */
-.btn-generate { width: 100%; padding: 11px; font-size: 15px; font-weight: 600; margin-bottom: 16px; letter-spacing: 0.2px; }
+.btn-generate { width: 100%; padding: 11px; font-size: 15px; font-weight: 600; margin-bottom: 10px; letter-spacing: 0.2px; }
 
 /* ---- Options layout ---- */
-.basic-options { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; margin-bottom: 10px; }
+.basic-options { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; margin-bottom: 10px; }
 .advanced-toggle {
   background: none;
   border: none;

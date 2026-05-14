@@ -40,22 +40,16 @@
       <p class="tool-tagline">Split a list of names into balanced, randomly assigned teams.</p>
     </div>
     <section class="tool-section" aria-label="Team picker">
-      <div class="result-box" id="result-box" style="min-height:120px;">
-        <p class="result-value is-placeholder" id="result-value" style="font-size:1rem;" aria-live="polite"></p>
-        <div class="teams-grid" id="teams-grid" aria-live="polite"></div>
-        <div class="result-actions">
-          <button class="btn btn-secondary btn-sm" id="again-btn">Reassign</button>
-          <button class="btn btn-secondary btn-sm" id="copy-btn">Copy All Teams</button>
-          <span class="copy-feedback" id="copy-feedback" aria-live="polite"></span>
-        </div>
-        <div class="history-section" id="history-section" hidden>
-          <h3>Recent</h3><ul class="history-list" id="history-list"></ul>
-        </div>
+      <div class="result-box" id="result-box" style="height:auto;min-height:100px;max-height:280px;overflow-y:auto;align-items:flex-start;text-align:left;">
+        <p class="result-value is-placeholder" id="result-value" style="font-size:1rem;width:100%;text-align:center;" aria-live="polite"></p>
+        <div class="teams-grid" id="teams-grid" aria-live="polite" style="width:100%;"></div>
       </div>
-
-      <button class="btn btn-primary btn-generate" id="generate-btn">Make Teams</button>
-
-      <div class="basic-options" style="flex-direction:column;gap:12px;">
+      <div class="result-actions">
+        <button class="btn btn-secondary btn-sm" id="again-btn">Reassign</button>
+        <button class="btn btn-secondary btn-sm" id="copy-btn">Copy All Teams</button>
+        <span class="copy-feedback" id="copy-feedback" aria-live="polite"></span>
+      </div>
+      <div class="basic-options" style="flex-direction:column;gap:10px;">
         <div class="control-group control-full">
           <label for="team-names">Names (one per line)</label>
           <textarea id="team-names" placeholder="Alice&#10;Bob&#10;Carol&#10;David&#10;Eve&#10;Frank"></textarea>
@@ -64,6 +58,11 @@
           <label for="team-count">Number of teams</label>
           <input type="number" id="team-count" value="2" min="2" max="20">
         </div>
+      </div>
+      <button class="btn btn-primary btn-generate" id="generate-btn">Make Teams</button>
+      <div class="history-section" id="history-section" hidden>
+        <h3>Recent</h3>
+        <ul class="history-list" id="history-list"></ul>
       </div>
     </section>
 

@@ -43,25 +43,19 @@
       <div class="result-box" id="result-box">
         <div class="result-value is-placeholder" id="result-value" aria-live="polite"></div>
         <ul class="results-list" id="result-list" aria-live="polite"></ul>
-        <div class="result-actions">
-          <button class="btn btn-secondary btn-sm" id="again-btn">Pick Again</button>
-          <button class="btn btn-secondary btn-sm" id="copy-btn">Copy</button>
-          <span class="copy-feedback" id="copy-feedback" aria-live="polite"></span>
-        </div>
-        <div class="history-section" id="history-section" hidden>
-          <h3>Recent</h3><ul class="history-list" id="history-list"></ul>
-        </div>
       </div>
-
-      <button class="btn btn-primary btn-generate" id="generate-btn">Pick One</button>
-
+      <div class="result-actions">
+        <button class="btn btn-secondary btn-sm" id="again-btn">Pick Again</button>
+        <button class="btn btn-secondary btn-sm" id="copy-btn">Copy</button>
+        <span class="copy-feedback" id="copy-feedback" aria-live="polite"></span>
+      </div>
       <div class="basic-options" style="flex-direction:column;">
         <div class="control-group control-full">
           <label for="any-items">Your options (one per line or comma-separated)</label>
           <textarea id="any-items" placeholder="Pizza&#10;Sushi&#10;Tacos&#10;Pasta&#10;Burgers"></textarea>
         </div>
       </div>
-
+      <button class="btn btn-primary btn-generate" id="generate-btn">Pick One</button>
       <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
         Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
       </button>
@@ -70,6 +64,10 @@
           <label for="any-count">How many to pick</label>
           <input type="number" id="any-count" value="1" min="1" max="50">
         </div>
+      </div>
+      <div class="history-section" id="history-section" hidden>
+        <h3>Recent</h3>
+        <ul class="history-list" id="history-list"></ul>
       </div>
     </section>
 
