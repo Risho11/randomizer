@@ -36,75 +36,67 @@
   </aside>
   <main class="main-content">
     <div class="tool-header">
-      <h1>Random Anything Generator</h1>
-      <p class="tool-tagline">Type any list of options and get a random pick — one click, any input.</p>
+      <h1>Random Anything</h1>
+      <p class="tool-tagline">Type any list, click generate, get a random pick.</p>
     </div>
-    <section class="tool-section" aria-label="Random anything tool">
-      <div class="tool-controls control-full">
-        <div class="control-group" style="width:100%;">
-          <label for="any-items">Your options (one per line or comma-separated)</label>
-          <textarea id="any-items" placeholder="Pizza&#10;Sushi&#10;Tacos&#10;Pasta&#10;Burgers"></textarea>
-        </div>
-      </div>
-      <div class="tool-controls">
-        <div class="control-group">
-          <label for="any-count">How many to pick</label>
-          <input type="number" id="any-count" value="1" min="1" max="50">
-        </div>
-      </div>
-      <div class="btn-actions">
-        <button class="btn btn-primary" id="generate-btn">Pick One</button>
-      </div>
-      <div class="result-box" id="result-box" hidden>
-        <div class="result-value" id="result-value" aria-live="polite"></div>
+    <section class="tool-section" aria-label="Random anything">
+      <div class="result-box" id="result-box">
+        <div class="result-value is-placeholder" id="result-value" aria-live="polite"></div>
         <ul class="results-list" id="result-list" aria-live="polite"></ul>
         <div class="result-actions">
           <button class="btn btn-secondary btn-sm" id="again-btn">Pick Again</button>
           <button class="btn btn-secondary btn-sm" id="copy-btn">Copy</button>
           <span class="copy-feedback" id="copy-feedback" aria-live="polite"></span>
         </div>
+        <div class="history-section" id="history-section" hidden>
+          <h3>Recent</h3><ul class="history-list" id="history-list"></ul>
+        </div>
       </div>
-      <div class="history-section" id="history-section" hidden>
-        <h3>Recent results</h3>
-        <ul class="history-list" id="history-list"></ul>
+
+      <button class="btn btn-primary btn-generate" id="generate-btn">Pick One</button>
+
+      <div class="basic-options" style="flex-direction:column;">
+        <div class="control-group control-full">
+          <label for="any-items">Your options (one per line or comma-separated)</label>
+          <textarea id="any-items" placeholder="Pizza&#10;Sushi&#10;Tacos&#10;Pasta&#10;Burgers"></textarea>
+        </div>
+      </div>
+
+      <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
+        Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
+      </button>
+      <div class="advanced-panel" id="adv-panel" hidden>
+        <div class="control-group">
+          <label for="any-count">How many to pick</label>
+          <input type="number" id="any-count" value="1" min="1" max="50">
+        </div>
       </div>
     </section>
+
     <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
     <div class="content-sections">
       <section class="content-block">
         <h2>About this tool</h2>
-        <p>This is the most flexible tool on the site. Enter any set of options — food choices, movie titles, tasks, names, whatever — and it picks one at random. Think of it as a digital spin of a wheel, without the wheel.</p>
-        <p>Each pick is made without replacement, so if you pick more than one item you will not get the same item twice in a single result.</p>
+        <p>Enter any set of options and it picks one at random. Think of it as a digital wheel spin — without the wheel. Each pick is made without replacement, so if you pick more than one you will not get the same item twice.</p>
       </section>
-      <section class="content-block">
-        <h2>How to use it</h2>
-        <ol>
-          <li>Type your options — one per line, or separated by commas.</li>
-          <li>Set how many to pick (default is 1).</li>
-          <li>Click <strong>Pick One</strong>.</li>
-          <li>Not happy with the result? Click <em>Pick Again</em>.</li>
-        </ol>
-      </section>
-      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
       <section class="content-block">
         <h2>Common uses</h2>
         <ul>
-          <li>"What should we eat tonight?" — paste a list of restaurants</li>
-          <li>Picking a random movie or show to watch</li>
-          <li>Assigning random tasks or chores</li>
+          <li>"What should we eat tonight?" — paste restaurants</li>
+          <li>Random movie or show to watch</li>
+          <li>Assigning tasks or chores</li>
           <li>Choosing who goes first in a game</li>
-          <li>Creative writing: random prompts, characters, or settings</li>
+          <li>Creative prompts and writing starters</li>
         </ul>
       </section>
+      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
       <section class="content-block faq-section">
         <h2>FAQ</h2>
         <dl>
-          <dt>Can I pick more than one item?</dt>
-          <dd>Yes. Change <em>How many to pick</em> to get multiple results. Items are not repeated within a single pick.</dd>
           <dt>What separators work?</dt>
-          <dd>One item per line is the default. If you enter everything on one line separated by commas, it switches to comma mode automatically.</dd>
+          <dd>One item per line is default. A single line with commas auto-switches to comma mode.</dd>
           <dt>Is every option equally likely?</dt>
-          <dd>Yes. Each item in the list has the same probability of being selected.</dd>
+          <dd>Yes. Each item has the same probability of being selected.</dd>
         </dl>
       </section>
     </div>
@@ -113,9 +105,7 @@
 <footer class="site-footer">
   <div class="footer-inner">
     <span class="footer-copy">&copy; 2025 RandomlyGenerated.org</span>
-    <nav class="footer-nav" aria-label="Footer links">
-      <a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a>
-    </nav>
+    <nav class="footer-nav"><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav>
   </div>
 </footer>
 <script src="js/main.js"></script>

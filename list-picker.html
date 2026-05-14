@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Paste a list of items and pick random selections from it. Great for giveaways, random assignments, shuffling, or choosing from any set of options.">
+  <meta name="description" content="Paste a list of items and pick random selections. Great for giveaways, random assignments, and shuffling.">
   <title>Random List Picker — RandomlyGenerated.org</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -37,79 +37,69 @@
   <main class="main-content">
     <div class="tool-header">
       <h1>Random List Picker</h1>
-      <p class="tool-tagline">Paste any list, pick random items, or shuffle the full list.</p>
+      <p class="tool-tagline">Paste any list, pick random items, or shuffle the whole thing.</p>
     </div>
-    <section class="tool-section" aria-label="List picker tool">
-      <div class="tool-controls control-full">
-        <div class="control-group" style="width:100%;">
-          <label for="list-items">Your list (one item per line, or comma-separated)</label>
-          <textarea id="list-items" placeholder="Alice&#10;Bob&#10;Carol&#10;David&#10;Eve"></textarea>
-        </div>
-      </div>
-      <div class="tool-controls">
-        <div class="control-group">
-          <label for="list-count">How many to pick</label>
-          <input type="number" id="list-count" value="1" min="1" max="200">
-        </div>
-        <div class="control-group" style="justify-content:flex-end;">
-          <div class="check-group">
-            <label class="check-label"><input type="checkbox" id="list-duplicates"> Allow duplicates</label>
-            <label class="check-label"><input type="checkbox" id="list-shuffle"> Shuffle full list</label>
-          </div>
-        </div>
-      </div>
-      <div class="btn-actions">
-        <button class="btn btn-primary" id="generate-btn">Pick</button>
-      </div>
-      <div class="result-box" id="result-box" hidden>
-        <div class="result-value" id="result-value" aria-live="polite"></div>
+    <section class="tool-section" aria-label="List picker">
+      <div class="result-box" id="result-box">
+        <div class="result-value is-placeholder" id="result-value" aria-live="polite"></div>
         <ul class="results-list" id="result-list" aria-live="polite"></ul>
         <div class="result-actions">
           <button class="btn btn-secondary btn-sm" id="again-btn">Pick Again</button>
           <button class="btn btn-secondary btn-sm" id="copy-btn">Copy</button>
           <span class="copy-feedback" id="copy-feedback" aria-live="polite"></span>
         </div>
+        <div class="history-section" id="history-section" hidden>
+          <h3>Recent</h3><ul class="history-list" id="history-list"></ul>
+        </div>
       </div>
-      <div class="history-section" id="history-section" hidden>
-        <h3>Recent results</h3>
-        <ul class="history-list" id="history-list"></ul>
+
+      <button class="btn btn-primary btn-generate" id="generate-btn">Pick</button>
+
+      <div class="basic-options" style="flex-direction:column;">
+        <div class="control-group control-full">
+          <label for="list-items">Your list (one per line or comma-separated)</label>
+          <textarea id="list-items" placeholder="Alice&#10;Bob&#10;Carol&#10;David&#10;Eve"></textarea>
+        </div>
+      </div>
+
+      <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
+        Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
+      </button>
+      <div class="advanced-panel" id="adv-panel" hidden>
+        <div class="control-group">
+          <label for="list-count">How many to pick</label>
+          <input type="number" id="list-count" value="1" min="1" max="200">
+        </div>
+        <div class="check-group" style="align-self:flex-end;">
+          <label class="check-label"><input type="checkbox" id="list-duplicates"> Allow duplicates</label>
+          <label class="check-label"><input type="checkbox" id="list-shuffle"> Shuffle full list</label>
+        </div>
       </div>
     </section>
+
     <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
     <div class="content-sections">
       <section class="content-block">
         <h2>About this tool</h2>
-        <p>Paste any list of items and this tool will pick random entries from it. Use <em>How many to pick</em> to control the number of selections. Enable <em>Shuffle full list</em> to randomize the order of the entire list instead of just picking a subset.</p>
+        <p>Paste any list and pick random entries from it. Control how many to pick, allow duplicates, or shuffle the entire list.</p>
       </section>
-      <section class="content-block">
-        <h2>How to use it</h2>
-        <ol>
-          <li>Paste your list — one item per line, or comma-separated on a single line.</li>
-          <li>Set how many items to pick.</li>
-          <li>Optionally enable <em>Allow duplicates</em> or <em>Shuffle full list</em>.</li>
-          <li>Click <strong>Pick</strong>.</li>
-        </ol>
-      </section>
-      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
       <section class="content-block">
         <h2>Common uses</h2>
         <ul>
-          <li>Running a prize draw or raffle</li>
-          <li>Randomly selecting students or participants</li>
+          <li>Prize draws and raffles</li>
+          <li>Random student selection</li>
           <li>Shuffling a playlist or task list</li>
-          <li>Assigning random roles or responsibilities</li>
-          <li>Picking a random menu item or activity</li>
+          <li>Assigning random roles or chores</li>
         </ul>
       </section>
+      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
       <section class="content-block faq-section">
         <h2>FAQ</h2>
         <dl>
-          <dt>What separators does it accept?</dt>
-          <dd>One item per line (newline-separated) is the default. If you paste a single line with commas, it switches to comma separation automatically.</dd>
-          <dt>What does "Allow duplicates" do?</dt>
-          <dd>By default, each item can only be picked once per result. Enabling duplicates allows the same item to appear more than once.</dd>
-          <dt>What does "Shuffle full list" do?</dt>
-          <dd>Instead of picking a subset, it randomizes the order of all items in the list and returns them in that shuffled order.</dd>
+          <dt>What separators work?</dt>
+          <dd>One item per line is default. A single line with commas switches to comma separation automatically.</dd>
+          <dt>What does Shuffle full list do?</dt>
+          <dd>Randomizes the order of all items instead of picking a subset.</dd>
         </dl>
       </section>
     </div>
@@ -118,9 +108,7 @@
 <footer class="site-footer">
   <div class="footer-inner">
     <span class="footer-copy">&copy; 2025 RandomlyGenerated.org</span>
-    <nav class="footer-nav" aria-label="Footer links">
-      <a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a>
-    </nav>
+    <nav class="footer-nav"><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav>
   </div>
 </footer>
 <script src="js/main.js"></script>

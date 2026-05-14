@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Generate random colors with hex codes, RGB values, and HSL. Preview each color instantly. Great for design inspiration or art projects.">
+  <meta name="description" content="Generate random colors with hex codes, RGB values, and HSL. Preview each color instantly.">
   <title>Random Color Generator — RandomlyGenerated.org</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -37,10 +37,32 @@
   <main class="main-content">
     <div class="tool-header">
       <h1>Random Color Generator</h1>
-      <p class="tool-tagline">Generate random colors with hex, RGB, and HSL values.</p>
+      <p class="tool-tagline">Random colors with hex, RGB, and HSL values.</p>
     </div>
-    <section class="tool-section" aria-label="Color generator tool">
-      <div class="tool-controls">
+    <section class="tool-section" aria-label="Color generator">
+      <div class="result-box" id="result-box">
+        <div class="color-result-row">
+          <span class="color-preview-swatch" id="color-swatch" aria-hidden="true" style="background:#e6efee;"></span>
+          <div class="color-codes">
+            <strong id="color-hex" aria-live="polite" style="font-family:var(--mono);">—</strong>
+            <span id="color-rgb" style="color:var(--text-muted);font-size:13px;display:block;"></span>
+            <span id="color-hsl" style="color:var(--text-muted);font-size:13px;"></span>
+          </div>
+        </div>
+        <ul class="results-list" id="color-list" aria-live="polite" style="margin-top:8px;text-align:left;"></ul>
+        <div class="result-actions" style="margin-top:10px;">
+          <button class="btn btn-secondary btn-sm" id="again-btn">Generate Again</button>
+          <button class="btn btn-secondary btn-sm" id="copy-btn">Copy</button>
+          <span class="copy-feedback" id="copy-feedback" aria-live="polite"></span>
+        </div>
+        <div class="history-section" id="history-section" hidden>
+          <h3>Recent</h3><ul class="history-list" id="history-list"></ul>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-generate" id="generate-btn">Generate</button>
+
+      <div class="basic-options">
         <div class="control-group">
           <label for="color-format">Copy format</label>
           <select id="color-format">
@@ -49,70 +71,42 @@
             <option value="hsl">HSL</option>
           </select>
         </div>
+      </div>
+
+      <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
+        Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
+      </button>
+      <div class="advanced-panel" id="adv-panel" hidden>
         <div class="control-group">
-          <label for="color-count">How many</label>
+          <label for="color-count">How many colors</label>
           <input type="number" id="color-count" value="1" min="1" max="20">
         </div>
       </div>
-      <div class="btn-actions">
-        <button class="btn btn-primary" id="generate-btn">Generate</button>
-      </div>
-      <div class="result-box" id="result-box" hidden>
-        <div class="color-result-row">
-          <span class="color-preview-swatch" id="color-swatch" aria-hidden="true"></span>
-          <div class="color-codes">
-            <strong id="color-hex" aria-live="polite"></strong>
-            <span id="color-rgb" style="color:var(--text-muted);font-size:13px;"></span><br>
-            <span id="color-hsl" style="color:var(--text-muted);font-size:13px;"></span>
-          </div>
-        </div>
-        <ul class="results-list" id="color-list" aria-live="polite"></ul>
-        <div class="result-actions">
-          <button class="btn btn-secondary btn-sm" id="again-btn">Generate Again</button>
-          <button class="btn btn-secondary btn-sm" id="copy-btn">Copy</button>
-          <span class="copy-feedback" id="copy-feedback" aria-live="polite"></span>
-        </div>
-      </div>
-      <div class="history-section" id="history-section" hidden>
-        <h3>Recent results</h3>
-        <ul class="history-list" id="history-list"></ul>
-      </div>
     </section>
+
     <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
     <div class="content-sections">
       <section class="content-block">
         <h2>About this tool</h2>
-        <p>Each click generates a completely random color by picking random values for red, green, and blue (0–255). The result is shown as a color swatch with hex, RGB, and HSL representations so you can use it in whatever format your project needs.</p>
+        <p>Generates a completely random color by picking values for red, green, and blue (0–255). Shows the color as a swatch with hex, RGB, and HSL values.</p>
       </section>
-      <section class="content-block">
-        <h2>How to use it</h2>
-        <ol>
-          <li>Select your preferred copy format — hex, RGB, or HSL.</li>
-          <li>Set how many colors you want (1–20).</li>
-          <li>Click <strong>Generate</strong> to see the color swatch and codes.</li>
-          <li>Click <strong>Copy</strong> to copy the value in your chosen format.</li>
-        </ol>
-      </section>
-      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
       <section class="content-block">
         <h2>Common uses</h2>
         <ul>
           <li>Design mood boards and color exploration</li>
-          <li>UI prototyping when you need placeholder colors</li>
-          <li>Generating random accent colors for data visualization</li>
+          <li>UI prototyping placeholder colors</li>
+          <li>Data visualization accent colors</li>
           <li>Art and generative design projects</li>
-          <li>Color theory exercises and education</li>
         </ul>
       </section>
+      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
       <section class="content-block faq-section">
         <h2>FAQ</h2>
         <dl>
-          <dt>Can I get multiple colors at once?</dt>
-          <dd>Yes — set the count up to 20. The primary color shows with a swatch; additional colors are listed below.</dd>
+          <dt>Can I get multiple colors?</dt>
+          <dd>Yes — open Advanced options and set count up to 20.</dd>
           <dt>What formats are supported?</dt>
-          <dd>Hex (<code>#RRGGBB</code>), RGB (<code>rgb(r, g, b)</code>), and HSL (<code>hsl(h, s%, l%)</code>).</dd>
-          <dt>Can I get colors in a specific hue range?</dt>
-          <dd>Not currently — colors are fully random across the full spectrum.</dd>
+          <dd>Hex, RGB, and HSL. Choose your preferred copy format from the dropdown.</dd>
         </dl>
       </section>
     </div>
@@ -121,9 +115,7 @@
 <footer class="site-footer">
   <div class="footer-inner">
     <span class="footer-copy">&copy; 2025 RandomlyGenerated.org</span>
-    <nav class="footer-nav" aria-label="Footer links">
-      <a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a>
-    </nav>
+    <nav class="footer-nav"><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav>
   </div>
 </footer>
 <script src="js/main.js"></script>

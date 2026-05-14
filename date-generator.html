@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Generate random dates between any two dates. Set a date range, choose a format, and generate instantly. Useful for testing, games, and more.">
+  <meta name="description" content="Generate random dates between any two dates. Set a range and choose a format. Useful for testing, games, and more.">
   <title>Random Date Generator — RandomlyGenerated.org</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -37,10 +37,25 @@
   <main class="main-content">
     <div class="tool-header">
       <h1>Random Date Generator</h1>
-      <p class="tool-tagline">Generate random dates between any two dates in multiple formats.</p>
+      <p class="tool-tagline">Generate random dates between any two dates.</p>
     </div>
-    <section class="tool-section" aria-label="Date generator tool">
-      <div class="tool-controls">
+    <section class="tool-section" aria-label="Date generator">
+      <div class="result-box" id="result-box">
+        <div class="result-value is-placeholder" id="result-value" aria-live="polite"></div>
+        <ul class="results-list" id="result-list" aria-live="polite"></ul>
+        <div class="result-actions">
+          <button class="btn btn-secondary btn-sm" id="again-btn">Generate Again</button>
+          <button class="btn btn-secondary btn-sm" id="copy-btn">Copy</button>
+          <span class="copy-feedback" id="copy-feedback" aria-live="polite"></span>
+        </div>
+        <div class="history-section" id="history-section" hidden>
+          <h3>Recent</h3><ul class="history-list" id="history-list"></ul>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-generate" id="generate-btn">Generate</button>
+
+      <div class="basic-options">
         <div class="control-group">
           <label for="date-start">Start date</label>
           <input type="date" id="date-start" value="2000-01-01">
@@ -49,6 +64,12 @@
           <label for="date-end">End date</label>
           <input type="date" id="date-end" value="2025-12-31">
         </div>
+      </div>
+
+      <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
+        Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
+      </button>
+      <div class="advanced-panel" id="adv-panel" hidden>
         <div class="control-group">
           <label for="date-format">Format</label>
           <select id="date-format">
@@ -64,58 +85,31 @@
           <input type="number" id="date-count" value="1" min="1" max="50">
         </div>
       </div>
-      <div class="btn-actions">
-        <button class="btn btn-primary" id="generate-btn">Generate</button>
-      </div>
-      <div class="result-box" id="result-box" hidden>
-        <div class="result-value" id="result-value" aria-live="polite"></div>
-        <ul class="results-list" id="result-list" aria-live="polite"></ul>
-        <div class="result-actions">
-          <button class="btn btn-secondary btn-sm" id="again-btn">Generate Again</button>
-          <button class="btn btn-secondary btn-sm" id="copy-btn">Copy</button>
-          <span class="copy-feedback" id="copy-feedback" aria-live="polite"></span>
-        </div>
-      </div>
-      <div class="history-section" id="history-section" hidden>
-        <h3>Recent results</h3>
-        <ul class="history-list" id="history-list"></ul>
-      </div>
     </section>
+
     <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
     <div class="content-sections">
       <section class="content-block">
         <h2>About this tool</h2>
-        <p>This tool picks a random date between your chosen start and end dates. Every day in the range has an equal chance of being selected. The result is displayed in the format you choose.</p>
+        <p>Picks a random date between your chosen start and end dates. Every day in the range has an equal chance of being selected.</p>
       </section>
-      <section class="content-block">
-        <h2>How to use it</h2>
-        <ol>
-          <li>Set a <strong>Start date</strong> and <strong>End date</strong> for the range.</li>
-          <li>Choose a display format.</li>
-          <li>Set how many dates you want.</li>
-          <li>Click <strong>Generate</strong>.</li>
-        </ol>
-      </section>
-      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
       <section class="content-block">
         <h2>Common uses</h2>
         <ul>
-          <li>Generating test data with realistic dates for databases or spreadsheets</li>
-          <li>Picking a random historical date for trivia or educational activities</li>
-          <li>Assigning random due dates in simulations</li>
+          <li>Test data with realistic dates for databases</li>
+          <li>Random historical date for trivia</li>
           <li>Game events and randomized calendars</li>
           <li>Birthday guessing games</li>
         </ul>
       </section>
+      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
       <section class="content-block faq-section">
         <h2>FAQ</h2>
         <dl>
-          <dt>Does it include the start and end dates?</dt>
-          <dd>Yes. Both endpoints are included in the possible range.</dd>
-          <dt>What date formats are available?</dt>
-          <dd>Long (January 5, 2024), short (Jan 5, 2024), ISO (2024-01-05), US (MM/DD/YYYY), and European (DD/MM/YYYY).</dd>
+          <dt>What formats are available?</dt>
+          <dd>Long (January 5, 2024), short (Jan 5), ISO (2024-01-05), US, and European. Set in Advanced options.</dd>
           <dt>Can I generate multiple dates?</dt>
-          <dd>Yes, up to 50 at once. Dates may repeat — they are picked independently.</dd>
+          <dd>Yes — up to 50 at once via Advanced options.</dd>
         </dl>
       </section>
     </div>
@@ -124,9 +118,7 @@
 <footer class="site-footer">
   <div class="footer-inner">
     <span class="footer-copy">&copy; 2025 RandomlyGenerated.org</span>
-    <nav class="footer-nav" aria-label="Footer links">
-      <a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a>
-    </nav>
+    <nav class="footer-nav"><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav>
   </div>
 </footer>
 <script src="js/main.js"></script>
