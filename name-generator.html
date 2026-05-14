@@ -51,13 +51,37 @@
       </div>
       <div class="basic-options">
         <div class="control-group">
-          <label for="name-type">Name type</label>
-          <select id="name-type">
+          <label for="name-part">Name part</label>
+          <select id="name-part">
             <option value="full">Full name</option>
             <option value="first">First name only</option>
             <option value="last">Last name only</option>
-            <option value="fantasy">Fantasy name</option>
-            <option value="neutral">Gender-neutral</option>
+          </select>
+        </div>
+        <div class="control-group" id="name-region-group">
+          <label for="name-region">Region</label>
+          <select id="name-region">
+            <option value="any">Any / Mixed</option>
+            <option value="european">European</option>
+            <option value="east-asian">East Asian</option>
+            <option value="south-asian">South Asian</option>
+            <option value="african">African</option>
+            <option value="latin">Latin American</option>
+            <option value="middle-eastern">Middle Eastern</option>
+            <option value="oceanic">Oceanic / Pacific</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="name-style">Style</label>
+          <select id="name-style">
+            <option value="realistic">Realistic</option>
+            <option value="high-fantasy">High Fantasy</option>
+            <option value="dark-fantasy">Dark Fantasy</option>
+            <option value="mythology">Mythology</option>
+            <option value="scifi">Sci-Fi</option>
+            <option value="nature">Nature Spirit</option>
+            <option value="celestial">Celestial</option>
+            <option value="steampunk">Steampunk</option>
           </select>
         </div>
       </div>
@@ -66,13 +90,13 @@
         Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
       </button>
       <div class="advanced-panel" id="adv-panel" hidden>
-        <div class="control-group">
+        <div class="control-group" id="name-gender-group">
           <label for="name-gender">Gender</label>
           <select id="name-gender">
             <option value="any">Any</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
-            <option value="neutral">Neutral</option>
+            <option value="neutral">Gender-neutral</option>
           </select>
         </div>
         <div class="control-group">
@@ -83,7 +107,7 @@
             <option value="long">Long (8+ letters)</option>
           </select>
         </div>
-        <div class="control-group">
+        <div class="control-group" id="name-honorific-group">
           <label for="name-honorific">Honorific</label>
           <select id="name-honorific">
             <option value="">None</option>
@@ -91,9 +115,10 @@
             <option value="Ms.">Ms.</option>
             <option value="Dr.">Dr.</option>
             <option value="Prof.">Prof.</option>
+            <option value="Mx.">Mx.</option>
           </select>
         </div>
-        <div class="control-group">
+        <div class="control-group" id="name-format-group">
           <label for="name-format">Output format</label>
           <select id="name-format">
             <option value="full">Full name</option>
@@ -101,11 +126,9 @@
             <option value="initials">Initials (J.D.)</option>
           </select>
         </div>
-        <div class="check-group" style="align-self:flex-end;">
-          <div class="control-group" id="middle-name-group">
-            <label class="check-label"><input type="checkbox" id="name-middle"> Include middle name</label>
-          </div>
-          <label class="check-label"><input type="checkbox" id="name-alliteration"> Alliteration (same first letter)</label>
+        <div class="check-group" style="align-self:flex-end; margin-top:4px;">
+          <label class="check-label" id="middle-name-group"><input type="checkbox" id="name-middle"> Include middle name</label>
+          <label class="check-label" id="name-alliteration-group"><input type="checkbox" id="name-alliteration"> Alliteration (same first letter)</label>
         </div>
       </div>
       <div class="history-section" id="history-section" hidden>
