@@ -58,12 +58,6 @@
           <label for="time-end">End time</label>
           <input type="time" id="time-end" value="23:59">
         </div>
-      </div>
-      <button class="btn btn-primary btn-generate" id="generate-btn">Generate</button>
-      <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
-        Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
-      </button>
-      <div class="advanced-panel" id="adv-panel" hidden>
         <div class="control-group">
           <label for="time-format">Format</label>
           <select id="time-format">
@@ -71,6 +65,12 @@
             <option value="24h">24-hour</option>
           </select>
         </div>
+      </div>
+      <button class="btn btn-primary btn-generate" id="generate-btn">Generate</button>
+      <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
+        Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
+      </button>
+      <div class="advanced-panel" id="adv-panel" hidden>
         <div class="control-group">
           <label for="time-round">Round to nearest</label>
           <select id="time-round">

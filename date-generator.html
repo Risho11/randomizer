@@ -58,12 +58,6 @@
           <label for="date-end">End date</label>
           <input type="date" id="date-end" value="2025-12-31">
         </div>
-      </div>
-      <button class="btn btn-primary btn-generate" id="generate-btn">Generate</button>
-      <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
-        Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
-      </button>
-      <div class="advanced-panel" id="adv-panel" hidden>
         <div class="control-group">
           <label for="date-format">Format</label>
           <select id="date-format">
@@ -74,6 +68,12 @@
             <option value="eu">05/01/2024</option>
           </select>
         </div>
+      </div>
+      <button class="btn btn-primary btn-generate" id="generate-btn">Generate</button>
+      <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
+        Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
+      </button>
+      <div class="advanced-panel" id="adv-panel" hidden>
         <div class="control-group">
           <label for="date-day-filter">Day filter</label>
           <select id="date-day-filter">

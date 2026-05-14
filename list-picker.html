@@ -49,10 +49,14 @@
         <button class="btn btn-secondary btn-sm" id="copy-btn">Copy</button>
         <span class="copy-feedback" id="copy-feedback" aria-live="polite"></span>
       </div>
-      <div class="basic-options" style="flex-direction:column;">
+      <div class="basic-options" style="flex-direction:column;gap:8px;">
         <div class="control-group control-full">
           <label for="list-items">Your list (one per line or comma-separated)</label>
           <textarea id="list-items" placeholder="Alice&#10;Bob&#10;Carol&#10;David&#10;Eve"></textarea>
+        </div>
+        <div class="control-group">
+          <label for="list-count">How many to pick</label>
+          <input type="number" id="list-count" value="1" min="1" max="200">
         </div>
       </div>
       <button class="btn btn-primary btn-generate" id="generate-btn">Pick</button>
@@ -60,10 +64,6 @@
         Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
       </button>
       <div class="advanced-panel" id="adv-panel" hidden>
-        <div class="control-group">
-          <label for="list-count">How many to pick</label>
-          <input type="number" id="list-count" value="1" min="1" max="200">
-        </div>
         <div class="control-group">
           <label for="list-case">Output case</label>
           <select id="list-case">

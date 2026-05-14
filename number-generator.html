@@ -58,6 +58,14 @@
           <label for="num-max">Max</label>
           <input type="number" id="num-max" value="100" step="any" aria-label="Maximum value">
         </div>
+        <div class="control-group">
+          <label for="num-parity">Even / Odd</label>
+          <select id="num-parity">
+            <option value="any">Any</option>
+            <option value="even">Even only</option>
+            <option value="odd">Odd only</option>
+          </select>
+        </div>
       </div>
       <button class="btn btn-primary btn-generate" id="generate-btn">Generate</button>
       <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
@@ -67,14 +75,6 @@
         <div class="control-group" id="decimals-group">
           <label for="num-decimals">Decimal places</label>
           <input type="number" id="num-decimals" value="2" min="1" max="10">
-        </div>
-        <div class="control-group">
-          <label for="num-parity">Even / Odd</label>
-          <select id="num-parity">
-            <option value="any">Any</option>
-            <option value="even">Even only</option>
-            <option value="odd">Odd only</option>
-          </select>
         </div>
         <div class="control-group">
           <label for="num-round-to">Round to nearest</label>

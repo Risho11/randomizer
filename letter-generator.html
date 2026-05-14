@@ -53,23 +53,6 @@
           <label for="letter-count">How many</label>
           <input type="number" id="letter-count" value="1" min="1" max="100">
         </div>
-      </div>
-      <button class="btn btn-primary btn-generate" id="generate-btn">Generate</button>
-      <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
-        Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
-      </button>
-      <div class="advanced-panel" id="adv-panel" hidden>
-        <div class="control-group">
-          <label for="letter-alphabet">Alphabet</label>
-          <select id="letter-alphabet">
-            <option value="az">A–Z (standard)</option>
-            <option value="custom">Custom</option>
-          </select>
-        </div>
-        <div class="control-group" id="custom-alpha-group" style="display:none;">
-          <label for="letter-custom">Custom letters</label>
-          <input type="text" id="letter-custom" placeholder="e.g. AEIOU" style="width:140px;">
-        </div>
         <div class="control-group">
           <label for="letter-case">Case</label>
           <select id="letter-case">
@@ -78,15 +61,32 @@
             <option value="mixed">Mixed</option>
           </select>
         </div>
-        <div class="control-group" style="margin-top:4px;">
+        <div class="control-group">
           <label for="letter-preset">Quick preset</label>
           <select id="letter-preset">
-            <option value="">— choose —</option>
+            <option value="">A–Z (standard)</option>
             <option value="vowels">Vowels only (AEIOU)</option>
             <option value="consonants">Consonants only</option>
             <option value="rare">Rare letters (Q X Z J K V W)</option>
             <option value="hex">Hex digits (0–9 A–F)</option>
           </select>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-generate" id="generate-btn">Generate</button>
+      <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
+        Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
+      </button>
+      <div class="advanced-panel" id="adv-panel" hidden>
+        <div class="control-group">
+          <label for="letter-alphabet">Custom alphabet</label>
+          <select id="letter-alphabet">
+            <option value="az">A–Z (standard)</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+        <div class="control-group" id="custom-alpha-group" style="display:none;">
+          <label for="letter-custom">Custom letters</label>
+          <input type="text" id="letter-custom" placeholder="e.g. AEIOU" style="width:140px;">
         </div>
         <div class="check-group" style="margin-top:6px;">
           <label class="check-label"><input type="checkbox" id="letter-no-repeat"> No repeats</label>

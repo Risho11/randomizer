@@ -49,10 +49,14 @@
         <button class="btn btn-secondary btn-sm" id="copy-btn">Copy</button>
         <span class="copy-feedback" id="copy-feedback" aria-live="polite"></span>
       </div>
-      <div class="basic-options" style="flex-direction:column;">
+      <div class="basic-options" style="flex-direction:column;gap:8px;">
         <div class="control-group control-full">
           <label for="any-items">Your options (one per line or comma-separated)</label>
           <textarea id="any-items" placeholder="Pizza&#10;Sushi&#10;Tacos&#10;Pasta&#10;Burgers"></textarea>
+        </div>
+        <div class="control-group">
+          <label for="any-count">How many to pick</label>
+          <input type="number" id="any-count" value="1" min="1" max="50">
         </div>
       </div>
       <button class="btn btn-primary btn-generate" id="generate-btn">Pick One</button>
@@ -60,10 +64,6 @@
         Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
       </button>
       <div class="advanced-panel" id="adv-panel" hidden>
-        <div class="control-group">
-          <label for="any-count">How many to pick</label>
-          <input type="number" id="any-count" value="1" min="1" max="50">
-        </div>
         <div class="control-group">
           <label for="any-case">Output case</label>
           <select id="any-case">

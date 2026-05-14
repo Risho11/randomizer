@@ -60,34 +60,7 @@
       </div>
       <div class="basic-options">
         <div class="control-group">
-          <label for="color-format">Copy format</label>
-          <select id="color-format">
-            <option value="hex">Hex (#RRGGBB)</option>
-            <option value="rgb">RGB</option>
-            <option value="hsl">HSL</option>
-          </select>
-        </div>
-      </div>
-      <button class="btn btn-primary btn-generate" id="generate-btn">Generate</button>
-      <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
-        Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
-      </button>
-      <div class="advanced-panel" id="adv-panel" hidden>
-        <div class="control-group">
-          <label for="color-tone">Tone</label>
-          <select id="color-tone">
-            <option value="any">Any</option>
-            <option value="warm">Warm (reds / oranges)</option>
-            <option value="cool">Cool (blues / greens)</option>
-            <option value="pastel">Pastel</option>
-            <option value="vivid">Vivid</option>
-            <option value="dark">Dark</option>
-            <option value="light">Light</option>
-            <option value="neutral">Neutral / Gray</option>
-          </select>
-        </div>
-        <div class="control-group">
-          <label for="color-hue">Hue family</label>
+          <label for="color-hue">Color</label>
           <select id="color-hue">
             <option value="any">Any</option>
             <option value="red">Red</option>
@@ -98,6 +71,33 @@
             <option value="blue">Blue</option>
             <option value="purple">Purple / Violet</option>
             <option value="pink">Pink / Magenta</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="color-tone">Tone</label>
+          <select id="color-tone">
+            <option value="any">Any</option>
+            <option value="warm">Warm</option>
+            <option value="cool">Cool</option>
+            <option value="pastel">Pastel</option>
+            <option value="vivid">Vivid</option>
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+            <option value="neutral">Neutral / Gray</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-generate" id="generate-btn">Generate</button>
+      <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
+        Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
+      </button>
+      <div class="advanced-panel" id="adv-panel" hidden>
+        <div class="control-group">
+          <label for="color-format">Copy format</label>
+          <select id="color-format">
+            <option value="hex">Hex (#RRGGBB)</option>
+            <option value="rgb">RGB</option>
+            <option value="hsl">HSL</option>
           </select>
         </div>
         <div class="control-group">
