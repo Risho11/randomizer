@@ -51,6 +51,23 @@
       </div>
       <div class="basic-options">
         <div class="control-group">
+          <label for="num-preset">Quick pick</label>
+          <select id="num-preset">
+            <option value="">Custom range</option>
+            <option value="d4">Dice — d4 (1–4)</option>
+            <option value="d6">Dice — d6 (1–6)</option>
+            <option value="d8">Dice — d8 (1–8)</option>
+            <option value="d10">Dice — d10 (1–10)</option>
+            <option value="d12">Dice — d12 (1–12)</option>
+            <option value="d20">Dice — d20 (1–20)</option>
+            <option value="d100">Dice — d100 (1–100)</option>
+            <option value="coin">Coin flip (0–1)</option>
+            <option value="pct">Percentage (0–100)</option>
+            <option value="lottery">Lottery (1–49)</option>
+            <option value="year">Year (1900–2025)</option>
+          </select>
+        </div>
+        <div class="control-group">
           <label for="num-min">Min</label>
           <input type="number" id="num-min" value="1" step="any" aria-label="Minimum value">
         </div>

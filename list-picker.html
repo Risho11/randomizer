@@ -58,6 +58,10 @@
           <label for="list-count">How many to pick</label>
           <input type="number" id="list-count" value="1" min="1" max="200">
         </div>
+        <div class="check-group">
+          <label class="check-label"><input type="checkbox" id="list-duplicates"> Allow duplicates</label>
+          <label class="check-label"><input type="checkbox" id="list-shuffle"> Shuffle full list</label>
+        </div>
       </div>
       <button class="btn btn-primary btn-generate" id="generate-btn">Pick</button>
       <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
@@ -87,8 +91,6 @@
           <input type="text" id="list-filter" placeholder="e.g. @gmail" style="width:140px;">
         </div>
         <div class="check-group" style="align-self:flex-end; margin-top:4px;">
-          <label class="check-label"><input type="checkbox" id="list-duplicates"> Allow duplicates</label>
-          <label class="check-label"><input type="checkbox" id="list-shuffle"> Shuffle full list</label>
           <label class="check-label"><input type="checkbox" id="list-sort-out"> Sort output</label>
           <label class="check-label"><input type="checkbox" id="list-weighted-hint"> Weight with :N syntax <span style="font-size:11px;color:var(--text-muted)">(Apple:3)</span></label>
         </div>

@@ -1,9 +1,40 @@
 (function () {
   'use strict';
 
+  var eraEl        = document.getElementById('date-era');
   var startEl      = document.getElementById('date-start');
   var endEl        = document.getElementById('date-end');
   var formatEl     = document.getElementById('date-format');
+
+  var ERA_RANGES = {
+    ancient:      { start: '0100-01-01', end: '0500-12-31' },
+    medieval:     { start: '0500-01-01', end: '1400-12-31' },
+    renaissance:  { start: '1400-01-01', end: '1700-12-31' },
+    industrial:   { start: '1700-01-01', end: '1900-12-31' },
+    modern:       { start: '1900-01-01', end: '2000-12-31' },
+    contemporary: { start: '2000-01-01', end: new Date().toISOString().slice(0,10) },
+    thisyear:     null,
+    thisdecade:   null
+  };
+
+  if (eraEl) {
+    eraEl.addEventListener('change', function() {
+      var v = eraEl.value;
+      if (!v) return;
+      var now = new Date();
+      if (v === 'thisyear') {
+        if (startEl) startEl.value = now.getFullYear() + '-01-01';
+        if (endEl)   endEl.value   = now.getFullYear() + '-12-31';
+      } else if (v === 'thisdecade') {
+        var decade = Math.floor(now.getFullYear() / 10) * 10;
+        if (startEl) startEl.value = decade + '-01-01';
+        if (endEl)   endEl.value   = (decade + 9) + '-12-31';
+      } else if (ERA_RANGES[v]) {
+        if (startEl) startEl.value = ERA_RANGES[v].start;
+        if (endEl)   endEl.value   = ERA_RANGES[v].end;
+      }
+    });
+  }
   var dayFilterEl  = document.getElementById('date-day-filter');
   var relativeEl   = document.getElementById('date-relative');
   var seasonEl     = document.getElementById('date-season');

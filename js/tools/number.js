@@ -11,6 +11,31 @@
   var parityEl   = document.getElementById('num-parity');
   var roundToEl  = document.getElementById('num-round-to');
   var commasEl   = document.getElementById('num-commas');
+  var presetEl   = document.getElementById('num-preset');
+
+  var PRESETS = {
+    d4:   { min:1,    max:4,    int:true  },
+    d6:   { min:1,    max:6,    int:true  },
+    d8:   { min:1,    max:8,    int:true  },
+    d10:  { min:1,    max:10,   int:true  },
+    d12:  { min:1,    max:12,   int:true  },
+    d20:  { min:1,    max:20,   int:true  },
+    d100: { min:1,    max:100,  int:true  },
+    coin: { min:0,    max:1,    int:true  },
+    pct:  { min:0,    max:100,  int:false },
+    lottery:{ min:1,  max:49,   int:true  },
+    year: { min:1900, max:2025, int:true  }
+  };
+
+  if (presetEl) {
+    presetEl.addEventListener('change', function() {
+      var p = PRESETS[presetEl.value];
+      if (!p) return;
+      if (minEl) minEl.value = p.min;
+      if (maxEl) maxEl.value = p.max;
+      if (intEl) { intEl.checked = p.int; if (decGroup) decGroup.style.display = p.int ? 'none' : ''; }
+    });
+  }
   var genBtn     = document.getElementById('generate-btn');
   var againBtn   = document.getElementById('again-btn');
   var copyBtn    = document.getElementById('copy-btn');

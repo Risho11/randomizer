@@ -20,6 +20,7 @@
   var weightedEl = document.getElementById('letter-weighted');
   var natoEl     = document.getElementById('letter-nato');
   var presetEl   = document.getElementById('letter-preset');
+  var groupEl    = document.getElementById('letter-group');
 
   var AZ = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var VOWELS = 'AEIOU';
@@ -95,9 +96,14 @@
     if (doSort) letters.sort();
     var cased = applyCase(letters.join(''), caseMode).split('');
 
+    var groupSize = groupEl ? parseInt(groupEl.value) : 0;
     var display;
     if (doNato) {
       display = cased.map(function(c) { return NATO[c.toUpperCase()] || c; }).join(' · ');
+    } else if (groupSize > 0) {
+      var joined = cased.join('');
+      var groups = joined.match(new RegExp('.{1,' + groupSize + '}', 'g')) || [joined];
+      display = groups.join(' – ');
     } else if (doSpaces) {
       display = cased.join(' ');
     } else if (count > 20) {

@@ -60,6 +60,14 @@
       </div>
       <div class="basic-options">
         <div class="control-group">
+          <label for="color-format">Copy format</label>
+          <select id="color-format">
+            <option value="hex">Hex (#RRGGBB)</option>
+            <option value="rgb">RGB</option>
+            <option value="hsl">HSL</option>
+          </select>
+        </div>
+        <div class="control-group">
           <label for="color-hue">Color</label>
           <select id="color-hue">
             <option value="any">Any</option>
@@ -92,14 +100,6 @@
         Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
       </button>
       <div class="advanced-panel" id="adv-panel" hidden>
-        <div class="control-group">
-          <label for="color-format">Copy format</label>
-          <select id="color-format">
-            <option value="hex">Hex (#RRGGBB)</option>
-            <option value="rgb">RGB</option>
-            <option value="hsl">HSL</option>
-          </select>
-        </div>
         <div class="control-group">
           <label for="color-min-l">Min lightness <span style="font-size:11px;font-weight:400;color:var(--text-muted)">(0–100)</span></label>
           <input type="number" id="color-min-l" value="0" min="0" max="100" style="width:70px;">

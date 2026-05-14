@@ -65,6 +65,16 @@
             <option value="24h">24-hour</option>
           </select>
         </div>
+        <div class="control-group">
+          <label for="time-period-filter">Period</label>
+          <select id="time-period-filter">
+            <option value="any">Any time</option>
+            <option value="morning">Morning (6am–12pm)</option>
+            <option value="afternoon">Afternoon (12pm–6pm)</option>
+            <option value="evening">Evening (6pm–10pm)</option>
+            <option value="night">Night (10pm–6am)</option>
+          </select>
+        </div>
       </div>
       <button class="btn btn-primary btn-generate" id="generate-btn">Generate</button>
       <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
@@ -80,16 +90,6 @@
             <option value="30">30 minutes</option>
             <option value="60">1 hour</option>
             <option value="0">Exact (no rounding)</option>
-          </select>
-        </div>
-        <div class="control-group">
-          <label for="time-period-filter">Period</label>
-          <select id="time-period-filter">
-            <option value="any">Any</option>
-            <option value="morning">Morning (6am–12pm)</option>
-            <option value="afternoon">Afternoon (12pm–6pm)</option>
-            <option value="evening">Evening (6pm–10pm)</option>
-            <option value="night">Night (10pm–6am)</option>
           </select>
         </div>
         <div class="check-group" style="align-self:flex-end; margin-top:4px;">
