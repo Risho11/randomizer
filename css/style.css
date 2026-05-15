@@ -140,6 +140,7 @@ a:hover { color: var(--accent-hover); }
 .advanced-toggle .adv-arrow { display: inline-block; transition: transform 0.18s ease; font-size: 11px; }
 .advanced-toggle[aria-expanded="true"] .adv-arrow { transform: rotate(180deg); }
 .advanced-panel { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; padding-top: 12px; border-top: 1px solid var(--border); margin-top: 4px; }
+.advanced-panel[hidden] { display: none; }
 
 /* ---- Form controls ---- */
 .control-group { display: flex; flex-direction: column; gap: 5px; }
