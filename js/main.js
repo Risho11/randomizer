@@ -38,7 +38,7 @@
       if (!panel) return;
       var expanded = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', String(!expanded));
-      panel.hidden = expanded;
+      panel.classList.toggle('open', !expanded);
     });
   });
 })();
