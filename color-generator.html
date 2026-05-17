@@ -2,18 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Generate random colors with hex codes, RGB values, and HSL. Preview each color instantly.">
-  <title>Random Color Generator — randomlygenerate.org</title>
+  <title>Random Color Generator — Hex, RGB & HSL | RandomlyGenerate</title>
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
   <meta property="og:image" content="https://www.randomlygenerate.org/favicon.png">
   <meta property="og:site_name" content="RandomlyGenerate">
+  <meta property="og:type" content="webpage">
+  <meta property="og:url" content="https://www.randomlygenerate.org/color-generator.html">
+  <meta property="og:title" content="Random Color Generator — Hex, RGB & HSL | RandomlyGenerate">
+  <meta property="og:description" content="Generate random colors with hex codes, RGB values, and HSL. Preview each color instantly.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Random Color Generator — Hex, RGB & HSL | RandomlyGenerate">
+  <meta name="twitter:description" content="Generate random colors with hex codes, RGB values, and HSL. Preview each color instantly.">
+  <meta name="twitter:image" content="https://www.randomlygenerate.org/favicon.png">
   <meta name="theme-color" content="#6b3fa0">
   <link rel="canonical" href="https://www.randomlygenerate.org/color-generator.html">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6051609023552836" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Random Color Generator — Hex, RGB & HSL",
+    "url": "https://www.randomlygenerate.org/color-generator.html",
+    "description": "Generate random colors with hex codes, RGB values, and HSL. Preview each color instantly.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 </head>
 <body>
 <header class="site-header">
@@ -147,12 +174,27 @@
       <section class="content-block faq-section">
         <h2>FAQ</h2>
         <dl>
-          <dt>Can I get multiple colors?</dt>
-          <dd>Yes — open Advanced options and set count up to 20.</dd>
-          <dt>What formats are supported?</dt>
-          <dd>Hex, RGB, and HSL. Choose your preferred copy format from the dropdown.</dd>
+          <dt>Can I generate only pastel colors?</dt>
+          <dd>Yes — set Tone to <em>Pastel</em>. Pastel colors have high lightness and low saturation.</dd>
+          <dt>How do I get only warm colors?</dt>
+          <dd>Set Tone to <em>Warm</em> for reds, oranges, and yellows, or set Color to a specific hue like Red or Orange.</dd>
+          <dt>Can I copy the color as a CSS variable?</dt>
+          <dd>Open Advanced options and check <em>Copy as CSS variable</em>. The copied value will be <code>--color-primary: #XXXXXX;</code>.</dd>
+          <dt>What is the contrast rating?</dt>
+          <dd>Shows WCAG accessibility rating (AA/AAA/Fail) for white and black text on the generated color — useful for UI design.</dd>
+          <dt>Can I see CMYK values?</dt>
+          <dd>Yes — open Advanced options and check <em>Show CMYK</em>.</dd>
         </dl>
       </section>
+    </div>
+
+    <div class="related-tools">
+      <h3>Related tools</h3>
+      <div class="related-tools-list">
+        <a href="number-generator.html" class="related-tool-link">Random Number</a>
+        <a href="random-anything.html" class="related-tool-link">Random Anything</a>
+        <a href="list-picker.html" class="related-tool-link">List Picker</a>
+      </div>
     </div>
   </main>
 </div>

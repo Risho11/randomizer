@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Paste a list of items and pick random selections. Great for giveaways, random assignments, and shuffling.">
   <title>Random List Picker — randomlygenerate.org</title>
@@ -10,10 +12,35 @@
   <link rel="apple-touch-icon" href="favicon.png">
   <meta property="og:image" content="https://www.randomlygenerate.org/favicon.png">
   <meta property="og:site_name" content="RandomlyGenerate">
+  <meta property="og:type" content="webpage">
+  <meta property="og:url" content="https://www.randomlygenerate.org/list-picker.html">
+  <meta property="og:title" content="Random List Picker — randomlygenerate.org">
+  <meta property="og:description" content="Paste a list of items and pick random selections. Great for giveaways, random assignments, and shuffling.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Random List Picker — randomlygenerate.org">
+  <meta name="twitter:description" content="Paste a list of items and pick random selections. Great for giveaways, random assignments, and shuffling.">
+  <meta name="twitter:image" content="https://www.randomlygenerate.org/favicon.png">
   <meta name="theme-color" content="#6b3fa0">
   <link rel="canonical" href="https://www.randomlygenerate.org/list-picker.html">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6051609023552836" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Random List Picker — randomlygenerate.org",
+    "url": "https://www.randomlygenerate.org/list-picker.html",
+    "description": "Paste a list of items and pick random selections. Great for giveaways, random assignments, and shuffling.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 </head>
 <body>
 <header class="site-header">
@@ -128,12 +155,26 @@
       <section class="content-block faq-section">
         <h2>FAQ</h2>
         <dl>
-          <dt>What separators work?</dt>
-          <dd>One item per line is default. A single line with commas switches to comma separation automatically.</dd>
-          <dt>What does Shuffle full list do?</dt>
-          <dd>Randomizes the order of all items instead of picking a subset.</dd>
+          <dt>Can I pick multiple winners from my list?</dt>
+          <dd>Yes — set How many to pick to any number. Each pick is unique (no repeats) unless you enable Allow duplicates.</dd>
+          <dt>Can I shuffle the entire list instead of picking?</dt>
+          <dd>Check <em>Shuffle full list</em> to randomize all items in order instead of selecting a subset.</dd>
+          <dt>Does it work for giveaways and raffles?</dt>
+          <dd>Yes. Paste your list of entrant names, set count to 1 (or more for multiple winners), and click Pick.</dd>
+          <dt>Can I give some items a higher chance of being picked?</dt>
+          <dd>Open Advanced options and enable <em>Weight with :N syntax</em>. Add <code>:3</code> after an item to triple its odds, e.g. <code>Alice:3</code>.</dd>
         </dl>
       </section>
+    </div>
+
+    <div class="related-tools">
+      <h3>Related tools</h3>
+      <div class="related-tools-list">
+        <a href="random-anything.html" class="related-tool-link">Random Anything</a>
+        <a href="team-picker.html" class="related-tool-link">Team Picker</a>
+        <a href="yes-no-generator.html" class="related-tool-link">Random Yes/No</a>
+        <a href="number-generator.html" class="related-tool-link">Random Number</a>
+      </div>
     </div>
   </main>
 </div>

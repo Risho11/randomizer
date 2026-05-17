@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Generate random times in any range. Choose 12-hour or 24-hour format, include or exclude seconds.">
   <title>Random Time Generator — randomlygenerate.org</title>
@@ -10,10 +12,35 @@
   <link rel="apple-touch-icon" href="favicon.png">
   <meta property="og:image" content="https://www.randomlygenerate.org/favicon.png">
   <meta property="og:site_name" content="RandomlyGenerate">
+  <meta property="og:type" content="webpage">
+  <meta property="og:url" content="https://www.randomlygenerate.org/time-generator.html">
+  <meta property="og:title" content="Random Time Generator — randomlygenerate.org">
+  <meta property="og:description" content="Generate random times in any range. Choose 12-hour or 24-hour format, include or exclude seconds.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Random Time Generator — randomlygenerate.org">
+  <meta name="twitter:description" content="Generate random times in any range. Choose 12-hour or 24-hour format, include or exclude seconds.">
+  <meta name="twitter:image" content="https://www.randomlygenerate.org/favicon.png">
   <meta name="theme-color" content="#6b3fa0">
   <link rel="canonical" href="https://www.randomlygenerate.org/time-generator.html">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6051609023552836" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Random Time Generator — randomlygenerate.org",
+    "url": "https://www.randomlygenerate.org/time-generator.html",
+    "description": "Generate random times in any range. Choose 12-hour or 24-hour format, include or exclude seconds.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 </head>
 <body>
 <header class="site-header">
@@ -127,12 +154,24 @@
       <section class="content-block faq-section">
         <h2>FAQ</h2>
         <dl>
-          <dt>Can I restrict to business hours?</dt>
-          <dd>Yes — set start to 09:00 and end to 17:00.</dd>
-          <dt>Does it work across midnight?</dt>
-          <dd>Not currently — start must be before end within the same day.</dd>
+          <dt>Can I generate random business hours only?</dt>
+          <dd>Open Advanced options and check <em>Business hours only</em>. This restricts the range to 9:00 AM – 5:00 PM.</dd>
+          <dt>Can I round the time to 15-minute intervals?</dt>
+          <dd>Open Advanced options and set Round to nearest to <em>15 minutes</em>.</dd>
+          <dt>How do I get a morning or evening time only?</dt>
+          <dd>Use the Period selector — choose Morning (6am–12pm), Afternoon (12pm–6pm), Evening (6pm–10pm), or Night (10pm–6am).</dd>
         </dl>
       </section>
+    </div>
+
+    <div class="related-tools">
+      <h3>Related tools</h3>
+      <div class="related-tools-list">
+        <a href="date-generator.html" class="related-tool-link">Random Date</a>
+        <a href="number-generator.html" class="related-tool-link">Random Number</a>
+        <a href="list-picker.html" class="related-tool-link">List Picker</a>
+        <a href="random-anything.html" class="related-tool-link">Random Anything</a>
+      </div>
     </div>
   </main>
 </div>
