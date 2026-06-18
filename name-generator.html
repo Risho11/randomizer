@@ -5,8 +5,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Generate random names for characters, testing, games, or projects. First names, full names, fantasy names, and neutral placeholders.">
-  <title>Random Name Generator — Characters, Fantasy & Real Names | RandomlyGenerate</title>
+  <meta name="description" content="Fantasy name generator for writers, worldbuilders, and D&D players. Choose from High Fantasy, Dark Fantasy, Mythology (Greek/Norse/Celtic), Sci-Fi, Steampunk, and more. 7 regional origins, gender filters, alliteration, and middle names.">
+  <title>Fantasy Name Generator for Writers & D&D — 8 Styles, 7 Regions | RandomlyGenerate</title>
   <link rel="stylesheet" href="css/style.css?v=3">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="RandomlyGenerate">
   <meta property="og:type" content="webpage">
   <meta property="og:url" content="https://www.randomlygenerate.org/name-generator.html">
-  <meta property="og:title" content="Random Name Generator — Characters, Fantasy & Real Names | RandomlyGenerate">
-  <meta property="og:description" content="Generate random names for characters, testing, games, or projects. First names, full names, fantasy names, and neutral placeholders.">
+  <meta property="og:title" content="Fantasy Name Generator for Writers & D&D — 8 Styles, 7 Regions | RandomlyGenerate">
+  <meta property="og:description" content="Fantasy name generator for writers, worldbuilders, and D&D players. Choose from High Fantasy, Dark Fantasy, Mythology (Greek/Norse/Celtic), Sci-Fi, Steampunk, and more.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Random Name Generator — Characters, Fantasy & Real Names | RandomlyGenerate">
-  <meta name="twitter:description" content="Generate random names for characters, testing, games, or projects. First names, full names, fantasy names, and neutral placeholders.">
+  <meta name="twitter:title" content="Fantasy Name Generator for Writers & D&D — 8 Styles, 7 Regions | RandomlyGenerate">
+  <meta name="twitter:description" content="Fantasy name generator for writers, worldbuilders, and D&D players. High Fantasy, Dark Fantasy, Mythology, Sci-Fi, Steampunk, and more.">
   <meta name="twitter:image" content="https://www.randomlygenerate.org/favicon.png">
   <meta name="theme-color" content="#6b3fa0">
   <link rel="canonical" href="https://www.randomlygenerate.org/name-generator.html">
@@ -28,9 +28,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Random Name Generator — Characters, Fantasy & Real Names",
+    "name": "Fantasy Name Generator for Writers & D&D",
     "url": "https://www.randomlygenerate.org/name-generator.html",
-    "description": "Generate random names for characters, testing, games, or projects. First names, full names, fantasy names, and neutral placeholders.",
+    "description": "Fantasy name generator for writers, worldbuilders, and D&D players. 8 fantasy styles including High Fantasy, Dark Fantasy, Mythology (Greek/Norse/Celtic), Sci-Fi, and Steampunk. 7 regional origins, gender filters, alliteration, and middle names.",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Any",
     "browserRequirements": "Requires JavaScript",
@@ -48,18 +48,18 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Can I generate last names only?",
+      "name": "What fantasy name styles are available?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes \u2014 set Name part to Last name only. Useful when you already have a first name."
+        "text": "Eight styles: High Fantasy, Dark Fantasy, Mythology (Greek/Norse/Celtic), Sci-Fi, Nature Spirit, Celestial, and Steampunk. Switch the Style dropdown to pick one."
       }
     },
     {
       "@type": "Question",
-      "name": "What fantasy name styles are available?",
+      "name": "Can I generate D&D character names?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Eight styles: High Fantasy, Dark Fantasy, Mythology (Greek/Norse/Celtic), Sci-Fi, Nature Spirit, Celestial, and Steampunk."
+        "text": "Yes \u2014 High Fantasy works well for elves, half-elves, and classic D&D races. Dark Fantasy suits tieflings and antiheroes. Mythology is ideal for clerics and paladins with a Greek or Norse flavor."
       }
     },
     {
@@ -67,7 +67,15 @@
       "name": "Can I get names from a specific culture or region?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes \u2014 set Style to Realistic and choose from European, East Asian, South Asian, African, Latin American, Middle Eastern, or Oceanic."
+        "text": "Yes \u2014 set Style to Realistic and choose from European, East Asian, South Asian, African, Latin American, Middle Eastern, or Oceanic/Pacific."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I generate last names only?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 set Name part to Last name only. Useful when you already have a first name for your character."
       }
     },
     {
@@ -80,10 +88,10 @@
     },
     {
       "@type": "Question",
-      "name": "Can names start with the same letter?",
+      "name": "Is this good for NaNoWriMo or novel writing?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Open Advanced options and check Alliteration to match the first letter of first and last name."
+        "text": "Yes \u2014 combine Style (e.g. High Fantasy), Region, and Gender to quickly generate names that fit your world. Generate multiple at once using the count field in Advanced options."
       }
     }
   ]
@@ -126,8 +134,8 @@
   </aside>
   <main class="main-content">
     <div class="tool-header">
-      <h1>Random Name Generator</h1>
-      <p class="tool-tagline">First names, full names, fantasy names, or neutral placeholders.</p>
+      <h1>Fantasy Name Generator</h1>
+      <p class="tool-tagline">8 fantasy styles, 7 regional origins — for writers, worldbuilders, and D&D.</p>
     </div>
     <section class="tool-section" aria-label="Name generator">
       <div class="result-box" id="result-box">
@@ -231,31 +239,49 @@
     <div class="content-sections">
       <section class="content-block">
         <h2>About this tool</h2>
-        <p>Draws from lists of common English names, fantasy-style invented names, and gender-neutral options. Useful anywhere you need realistic-sounding names quickly.</p>
+        <p>A character name generator built for writers, worldbuilders, tabletop RPG players, and game designers. Choose from 8 distinct fantasy and realistic styles, filter by 7 regional origins, set gender, name length, and optionally add alliteration or a middle name. Every combination produces a different feel — a High Fantasy elf name sounds nothing like a Steampunk engineer or a Mythology-era Greek hero.</p>
+      </section>
+      <section class="content-block">
+        <h2>Fantasy name styles</h2>
+        <ul>
+          <li><strong>High Fantasy</strong> — melodic, elvish-inspired names suited to epic fantasy novels and D&D campaigns (think Tolkien-adjacent).</li>
+          <li><strong>Dark Fantasy</strong> — harsher, shadowed names for antiheroes, villains, grimdark fiction, and dark RPG settings.</li>
+          <li><strong>Mythology</strong> — pulls from Greek, Norse, and Celtic naming conventions for gods, heroes, and legendary figures.</li>
+          <li><strong>Sci-Fi</strong> — futuristic names with an alien or technological edge, good for space opera and cyberpunk characters.</li>
+          <li><strong>Nature Spirit</strong> — soft, elemental names drawn from natural imagery — suited to druids, fey, and nature-based characters.</li>
+          <li><strong>Celestial</strong> — ethereal, divine-sounding names for angels, archons, gods, and cosmic beings.</li>
+          <li><strong>Steampunk</strong> — Victorian-flavored names with a mechanical, inventor-era feel.</li>
+          <li><strong>Realistic</strong> — real-world names filtered by 7 regional origins: European, East Asian, South Asian, African, Latin American, Middle Eastern, or Oceanic/Pacific.</li>
+        </ul>
       </section>
       <section class="content-block">
         <h2>Common uses</h2>
         <ul>
-          <li>Placeholder user accounts in development and testing</li>
-          <li>Character names for fiction or games</li>
-          <li>Design mockup dummy data</li>
-          <li>Anonymous survey participant labels</li>
+          <li>Character names for fantasy novels, short stories, and screenplays</li>
+          <li>D&D, Pathfinder, and tabletop RPG player characters and NPCs</li>
+          <li>Video game character creation and worldbuilding</li>
+          <li>Placeholder names in app prototypes and design mockups</li>
+          <li>Writing prompts and NaNoWriMo character generation</li>
         </ul>
       </section>
       <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
       <section class="content-block faq-section">
         <h2>FAQ</h2>
         <dl>
-          <dt>Can I generate last names only?</dt>
-          <dd>Yes — set Name part to <em>Last name only</em>. Useful when you already have a first name.</dd>
           <dt>What fantasy name styles are available?</dt>
-          <dd>Eight styles: High Fantasy, Dark Fantasy, Mythology (Greek/Norse/Celtic), Sci-Fi, Nature Spirit, Celestial, and Steampunk.</dd>
+          <dd>Eight styles: High Fantasy, Dark Fantasy, Mythology (Greek/Norse/Celtic), Sci-Fi, Nature Spirit, Celestial, and Steampunk. Switch the Style dropdown to pick one.</dd>
+          <dt>Can I generate D&D character names?</dt>
+          <dd>Yes — High Fantasy works well for elves, half-elves, and classic D&D races. Dark Fantasy suits tieflings and antiheroes. Mythology is ideal for clerics and paladins with a Greek or Norse flavor.</dd>
           <dt>Can I get names from a specific culture or region?</dt>
-          <dd>Yes — set Style to Realistic and choose from European, East Asian, South Asian, African, Latin American, Middle Eastern, or Oceanic.</dd>
+          <dd>Yes — set Style to Realistic and choose from European, East Asian, South Asian, African, Latin American, Middle Eastern, or Oceanic/Pacific.</dd>
+          <dt>Can I generate last names only?</dt>
+          <dd>Yes — set Name part to <em>Last name only</em>. Useful when you already have a first name for your character.</dd>
           <dt>Can I generate a name with a middle name?</dt>
           <dd>Open Advanced options and check <em>Include middle name</em>. Only applies to Full name mode.</dd>
           <dt>Can names start with the same letter?</dt>
-          <dd>Open Advanced options and check <em>Alliteration</em> to match the first letter of first and last name.</dd>
+          <dd>Open Advanced options and check <em>Alliteration</em> to match the first letter of first and last name — a common technique for memorable character names.</dd>
+          <dt>Is this good for NaNoWriMo or novel writing?</dt>
+          <dd>Yes — combine Style (e.g. High Fantasy), Region, and Gender to quickly generate names that fit your world. Generate multiple at once using the count field in Advanced options.</dd>
         </dl>
       </section>
     </div>
