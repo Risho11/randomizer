@@ -5,8 +5,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Paste a list of items and pick random selections. Great for giveaways, random assignments, and shuffling.">
-  <title>Random List Picker — randomlygenerate.org</title>
+  <meta name="description" content="Paste any list and pick random items. Supports weighted picks with :N syntax, shuffle mode, duplicate control, filter by keyword, and multiple output formats.">
+  <title>Weighted Random List Picker — Giveaways, Raffles & Shuffle Mode | RandomlyGenerate</title>
   <link rel="stylesheet" href="css/style.css?v=3">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="RandomlyGenerate">
   <meta property="og:type" content="webpage">
   <meta property="og:url" content="https://www.randomlygenerate.org/list-picker.html">
-  <meta property="og:title" content="Random List Picker — randomlygenerate.org">
-  <meta property="og:description" content="Paste a list of items and pick random selections. Great for giveaways, random assignments, and shuffling.">
+  <meta property="og:title" content="Weighted Random List Picker — Giveaways, Raffles & Shuffle Mode | RandomlyGenerate">
+  <meta property="og:description" content="Paste any list and pick random items. Supports weighted picks with :N syntax, shuffle mode, duplicate control, filter by keyword, and multiple output formats.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Random List Picker — randomlygenerate.org">
-  <meta name="twitter:description" content="Paste a list of items and pick random selections. Great for giveaways, random assignments, and shuffling.">
+  <meta name="twitter:title" content="Weighted Random List Picker — Giveaways, Raffles & Shuffle Mode | RandomlyGenerate">
+  <meta name="twitter:description" content="Paste any list and pick random items. Supports weighted picks with :N syntax, shuffle mode, duplicate control, filter by keyword, and multiple output formats.">
   <meta name="twitter:image" content="https://www.randomlygenerate.org/favicon.png">
   <meta name="theme-color" content="#6b3fa0">
   <link rel="canonical" href="https://www.randomlygenerate.org/list-picker.html">
@@ -28,9 +28,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Random List Picker — randomlygenerate.org",
+    "name": "Random List Picker — Weighted picks, shuffle mode, filter, duplicate control — paste any list.",
     "url": "https://www.randomlygenerate.org/list-picker.html",
-    "description": "Paste a list of items and pick random selections. Great for giveaways, random assignments, and shuffling.",
+    "description": "Paste any list and pick random items. Supports weighted picks with :N syntax, shuffle mode, duplicate control, filter by keyword, and multiple output formats.",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Any",
     "browserRequirements": "Requires JavaScript",
@@ -119,7 +119,7 @@
   <main class="main-content">
     <div class="tool-header">
       <h1>Random List Picker</h1>
-      <p class="tool-tagline">Paste any list, pick random items, or shuffle the whole thing.</p>
+      <p class="tool-tagline">Weighted picks, shuffle mode, filter, duplicate control — paste any list.</p>
     </div>
     <section class="tool-section" aria-label="List picker">
       <div class="result-box" id="result-box">
@@ -187,15 +187,16 @@
     <div class="content-sections">
       <section class="content-block">
         <h2>About this tool</h2>
-        <p>Paste any list and pick random entries from it. Control how many to pick, allow duplicates, or shuffle the entire list.</p>
+        <p>Paste any list of items (one per line or comma-separated) and pick a random subset. Weight individual items with the :N syntax — add :3 after an item to give it 3× the probability of being picked (e.g. Alice:3). Enable shuffle mode to randomize the entire list in order instead of picking a subset. Toggle allow-duplicates to permit the same item to be picked more than once. Filter items containing a keyword before picking.</p>
       </section>
       <section class="content-block">
         <h2>Common uses</h2>
         <ul>
-          <li>Prize draws and raffles</li>
-          <li>Random student selection</li>
-          <li>Shuffling a playlist or task list</li>
-          <li>Assigning random roles or chores</li>
+          <li>Running giveaways and raffles with weighted entries</li>
+          <li>Picking a random winner from a list of names</li>
+          <li>Choosing a random restaurant, movie, or activity</li>
+          <li>Randomizing a playlist or reading list order</li>
+          <li>Teacher picking random students to answer questions</li>
         </ul>
       </section>
       <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>

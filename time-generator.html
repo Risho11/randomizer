@@ -5,8 +5,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Generate random times in any range. Choose 12-hour or 24-hour format, include or exclude seconds.">
-  <title>Random Time Generator — randomlygenerate.org</title>
+  <meta name="description" content="Generate random times in any range. Filter to business hours, specific periods (morning, afternoon, evening, night), and round to 5, 10, or 15-minute intervals. 12 or 24-hour format.">
+  <title>Random Time Generator — Business Hours, AM/PM Periods & Interval Rounding | RandomlyGenerate</title>
   <link rel="stylesheet" href="css/style.css?v=3">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="RandomlyGenerate">
   <meta property="og:type" content="webpage">
   <meta property="og:url" content="https://www.randomlygenerate.org/time-generator.html">
-  <meta property="og:title" content="Random Time Generator — randomlygenerate.org">
-  <meta property="og:description" content="Generate random times in any range. Choose 12-hour or 24-hour format, include or exclude seconds.">
+  <meta property="og:title" content="Random Time Generator — Business Hours, AM/PM Periods & Interval Rounding | RandomlyGenerate">
+  <meta property="og:description" content="Generate random times in any range. Filter to business hours, specific periods (morning, afternoon, evening, night), and round to 5, 10, or 15-minute intervals. 12 or 24-hour format.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Random Time Generator — randomlygenerate.org">
-  <meta name="twitter:description" content="Generate random times in any range. Choose 12-hour or 24-hour format, include or exclude seconds.">
+  <meta name="twitter:title" content="Random Time Generator — Business Hours, AM/PM Periods & Interval Rounding | RandomlyGenerate">
+  <meta name="twitter:description" content="Generate random times in any range. Filter to business hours, specific periods (morning, afternoon, evening, night), and round to 5, 10, or 15-minute intervals. 12 or 24-hour format.">
   <meta name="twitter:image" content="https://www.randomlygenerate.org/favicon.png">
   <meta name="theme-color" content="#6b3fa0">
   <link rel="canonical" href="https://www.randomlygenerate.org/time-generator.html">
@@ -28,9 +28,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Random Time Generator — randomlygenerate.org",
+    "name": "Random Time Generator — Business hours filter, AM/PM period selector, interval rounding, 12/24-hour format.",
     "url": "https://www.randomlygenerate.org/time-generator.html",
-    "description": "Generate random times in any range. Choose 12-hour or 24-hour format, include or exclude seconds.",
+    "description": "Generate random times in any range. Filter to business hours, specific periods (morning, afternoon, evening, night), and round to 5, 10, or 15-minute intervals. 12 or 24-hour format.",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Any",
     "browserRequirements": "Requires JavaScript",
@@ -111,7 +111,7 @@
   <main class="main-content">
     <div class="tool-header">
       <h1>Random Time Generator</h1>
-      <p class="tool-tagline">Random times in any range, 12-hour or 24-hour format.</p>
+      <p class="tool-tagline">Business hours filter, AM/PM period selector, interval rounding, 12/24-hour format.</p>
     </div>
     <section class="tool-section" aria-label="Time generator">
       <div class="result-box" id="result-box">
@@ -183,10 +183,10 @@
       <section class="content-block">
         <h2>Common uses</h2>
         <ul>
-          <li>Test data with timestamps</li>
-          <li>Time-based trivia and quiz games</li>
-          <li>Scheduling puzzles</li>
-          <li>Teaching time concepts</li>
+          <li>Generating random meeting or appointment times</li>
+          <li>Creating placeholder timestamps for app testing</li>
+          <li>Random time selection for games or quizzes</li>
+          <li>Scheduling randomized tasks within working hours</li>
         </ul>
       </section>
       <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
