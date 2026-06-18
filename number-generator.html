@@ -41,6 +41,61 @@
     }
   }
   </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I generate a random number between 1 and 10?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Set Min to 1 and Max to 10, then click Generate. The result is always within your range, inclusive."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this as a dice roller?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 use the Quick pick preset: d6 for a standard die, d20 for Dungeons & Dragons, d4/d8/d10/d12/d100 for other dice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get a random decimal number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uncheck Integers only in Advanced options and set how many decimal places you want."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add a currency symbol to the output?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 open Advanced options and type $ in the Prefix field. The result will display as e.g. $47."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the number truly random?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uses Math.random() \u2014 cryptographically suitable for games, decisions, and simulations, not for security-critical use."
+      }
+    }
+  ]
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YWVGL7ZGEX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YWVGL7ZGEX');
+</script>
 </head>
 <body>
 <header class="site-header">
